@@ -1,16 +1,15 @@
-<div class="header">
-  <h1>{{ decimal }}</h1>
-  <h1>{{ binary }}</h1>
+<div>
+  <label>Decimal:</label>
+  <input type="number" [(ngModel)]="decimal" (ngModelChange)="updateBinary()">
 </div>
 <div>
-  <input #Decimal type="number" max="127" value="{{ decimal }}" (input)="calculate(Decimal.value)" />
+  <label>Binary:</label>
+  <input type="checkbox" [(ngModel)]="binary[7]" (ngModelChange)="updateDecimal()">
+  <input type="checkbox" [(ngModel)]="binary[6]" (ngModelChange)="updateDecimal()">
+  <input type="checkbox" [(ngModel)]="binary[5]" (ngModelChange)="updateDecimal()">
+  <input type="checkbox" [(ngModel)]="binary[4]" (ngModelChange)="updateDecimal()">
+  <input type="checkbox" [(ngModel)]="binary[3]" (ngModelChange)="updateDecimal()">
+  <input type="checkbox" [(ngModel)]="binary[2]" (ngModelChange)="updateDecimal()">
+  <input type="checkbox" [(ngModel)]="binary[1]" (ngModelChange)="updateDecimal()">
+  <input type="checkbox" [(ngModel)]="binary[0]" (ngModelChange)="updateDecimal()">
 </div>
-
-<input type="checkbox" formControlName="7">
-<input type="checkbox" formControlName="6">
-<input type="checkbox" formControlName="5">
-<input type="checkbox" formControlName="4">
-<input type="checkbox" formControlName="3">
-<input type="checkbox" formControlName="2">
-<input type="checkbox" formControlName="1">
-<input type="checkbox" formControlName="0">
