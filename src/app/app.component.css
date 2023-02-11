@@ -1,0 +1,24 @@
+.header{
+  text-align: center;
+}
+
+fieldset{
+  margin-top: 50px;
+  margin-left: 300px;
+  margin-right: 300px;
+  border: double;
+  border-radius: 6px;
+  text-align: center;
+}
+
+legend{
+  font-family: Arial, serif;
+  font-size: xx-large;
+  font-weight: bold;
+  text-shadow: 1px 1px black;
+
+}
+label{
+  font-family: "Sans Serif Collection", serif;
+}
+
