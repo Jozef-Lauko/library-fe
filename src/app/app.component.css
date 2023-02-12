@@ -1,0 +1,19 @@
+* {
+  font-size: 15pt;
+  font-family: "Arial Rounded MT", serif;
+}
+
+.container {
+  margin: 50px auto auto;
+  width: 50%;
+  text-align: center;
+}
+
+#dec {
+  margin-bottom: 20px;
+}
+#bin input[type="checkbox"] {
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+}

@@ -1,15 +1,17 @@
-<div>
-  <label>Decimal: </label>
-  <input type="number" #Decimal value="{{decimal}}" (input)="updateBinary(Decimal.value)">
-</div>
-<div>
-  <label>Binary:</label>
-  <input type="checkbox" [checked]="binary[7]" (change)="updateDecimal(7)">
-  <input type="checkbox" [checked]="binary[6]" (change)="updateDecimal(6)">
-  <input type="checkbox" [checked]="binary[5]" (change)="updateDecimal(5)">
-  <input type="checkbox" [checked]="binary[4]" (change)="updateDecimal(4)">
-  <input type="checkbox" [checked]="binary[3]" (change)="updateDecimal(3)">
-  <input type="checkbox" [checked]="binary[2]" (change)="updateDecimal(2)">
-  <input type="checkbox" [checked]="binary[1]" (change)="updateDecimal(1)">
-  <input type="checkbox" [checked]="binary[0]" (change)="updateDecimal(0)">
+<div class="container">
+  <div id="dec">
+    <label>Desiatková sústava </label>
+    <input type="number" #Decimal value="{{decimal}}" (input)="updateBinary(Decimal.value)">
+  </div>
+  <div id="bin">
+    <label>Binárna sústava </label>
+    <input type="checkbox" [checked]="binary[7]" (change)="updateDecimal(7)">
+    <input type="checkbox" [checked]="binary[6]" (change)="updateDecimal(6)">
+    <input type="checkbox" [checked]="binary[5]" (change)="updateDecimal(5)">
+    <input type="checkbox" [checked]="binary[4]" (change)="updateDecimal(4)">
+    <input type="checkbox" [checked]="binary[3]" (change)="updateDecimal(3)">
+    <input type="checkbox" [checked]="binary[2]" (change)="updateDecimal(2)">
+    <input type="checkbox" [checked]="binary[1]" (change)="updateDecimal(1)">
+    <input type="checkbox" [checked]="binary[0]" (change)="updateDecimal(0)">
+  </div>
 </div>
