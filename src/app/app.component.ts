@@ -1,4 +1,12 @@
 import { Component } from '@angular/core';
+import {FormControl, FormGroup} from "@angular/forms";
+
+export enum Menu {
+  BOOKS = "BOOKS",
+  USERS = "USERS",
+  BORROWINGS = "BORROWINGS",
+  GENRES = "GENRES"
+}
 
 @Component({
   selector: 'app-root',
@@ -7,24 +15,61 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  decimal = 0;
-  binary = [false, false, false, false, false, false, false, false];
+  form: FormGroup;
 
-  updateBinary(dec: any) {
-    let decimal = parseInt(dec);
-    for (let i = 0; i <= 7; i++) {
-      this.binary[i] = decimal % 2 === 1;
-      decimal = Math.floor(decimal / 2);
-    }
-    this.decimal = parseInt(dec);
+  constructor() {
+    this.form = new FormGroup({
+      name: new FormControl(),
+      surname: new FormControl(),
+      title: new FormControl()
+    })
   }
 
-  updateDecimal(num: number) {
-    this.decimal = 0;
-    this.binary[num] = !this.binary[num];
+  menu = Menu;
+  actualMenu: Menu = Menu.USERS
 
-    for (let i = 0; i <= 7; i++) {
-      this.decimal += this.binary[i] ? Math.pow(2, i) : 0;
-    }
+  persons: Array<{
+    name: string,
+    surname: string
+  }> = [];
+
+  books: Array<{
+    title: string
+  }> = [];
+
+  borrowings: Array<{
+    name: string,
+    surname: string,
+    title: string,
+  }> = [];
+
+  genres: Array<{
+    title: string
+  }> = [];
+
+  savePerson(): void{
+    this.persons.push(this.form.value);
+    //reset formu
+    this.form.reset();
   }
+
+  saveBook(): void{
+    this.books.push(this.form.value);
+    this.form.reset();
+  }
+
+  saveBorrowing(): void{
+    this.borrowings.push(this.form.value);
+    this.form.reset();
+  }
+
+  saveGenre(): void{
+    this.genres.push(this.form.value);
+    this.form.reset();
+  }
+
+  changeMenu(menuItem: Menu): void {
+    this.actualMenu = menuItem;
+  }
+
 }

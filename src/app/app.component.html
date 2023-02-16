@@ -1,17 +1,95 @@
+<div class="header">
+  <button (click)="changeMenu(menu.USERS)">POUZIVATELIA</button>
+  <button (click)="changeMenu(menu.BOOKS)">KNIHY</button>
+  <button (click)="changeMenu(menu.GENRES)">ZANRE</button>
+  <button (click)="changeMenu(menu.BORROWINGS)">VYPOZICKY</button>
+</div>
+
 <div class="container">
-  <div id="dec">
-    <label>Desiatková sústava </label>
-    <input type="number" #Decimal value="{{decimal}}" (input)="updateBinary(Decimal.value)">
-  </div>
-  <div id="bin">
-    <label>Binárna sústava </label>
-    <input type="checkbox" [checked]="binary[7]" (change)="updateDecimal(7)">
-    <input type="checkbox" [checked]="binary[6]" (change)="updateDecimal(6)">
-    <input type="checkbox" [checked]="binary[5]" (change)="updateDecimal(5)">
-    <input type="checkbox" [checked]="binary[4]" (change)="updateDecimal(4)">
-    <input type="checkbox" [checked]="binary[3]" (change)="updateDecimal(3)">
-    <input type="checkbox" [checked]="binary[2]" (change)="updateDecimal(2)">
-    <input type="checkbox" [checked]="binary[1]" (change)="updateDecimal(1)">
-    <input type="checkbox" [checked]="binary[0]" (change)="updateDecimal(0)">
-  </div>
+  <ng-container *ngIf="actualMenu === menu.USERS">
+    <h3>POUZIVATELIA</h3>
+
+    <form [formGroup]="form">
+      <input type="text" placeholder="Meno" formControlName="name" />
+      <input type="text" placeholder="Priezvisko" formControlName="surname" />
+
+      <button type="button" (click)="savePerson()" >Ulozit</button>
+    </form>
+
+    <table *ngIf="persons.length">
+      <tr>
+        <th>Meno</th>
+        <th>Priezvisko</th>
+      </tr>
+      <tr *ngFor="let person of persons">
+        <td>{{person.name}}</td>
+        <td>{{person.surname}}</td>
+      </tr>
+    </table>
+  </ng-container>
+
+  <ng-container *ngIf="actualMenu === menu.BOOKS">
+    <h3>KNIHY</h3>
+
+    <form [formGroup]="form">
+      <input type="text" placeholder="Nazov knihy" formControlName="title">
+
+      <button type="button" (click)="saveBook()">Ulozit</button>
+    </form>
+
+    <table *ngIf="books.length">
+      <tr>
+        <th>Nazov knihy</th>
+      </tr>
+      <tr *ngFor="let book of books">
+        <td>{{book.title}}</td>
+      </tr>
+    </table>
+  </ng-container>
+
+  <ng-container *ngIf="actualMenu === menu.BORROWINGS">
+    <h3>VYPOZICKY</h3>
+
+    <form [formGroup]="form">
+      <input type="text" placeholder="Meno" formControlName="name">
+      <input type="text" placeholder="Priezvisko" formControlName="surname">
+      <input type="text" placeholder="Nazov knihy" formControlName="title">
+
+      <button type="button" (click)="saveBorrowing()">Ulozit</button>
+    </form>
+
+    <table *ngIf="borrowings.length">
+      <tr>
+        <th>Meno</th>
+        <th>Priezvisko</th>
+        <th>Nazov knihy</th>
+      </tr>
+      <tr *ngFor="let borrowing of borrowings">
+        <td>{{borrowing.name}}</td>
+        <td>{{borrowing.surname}}</td>
+        <td>{{borrowing.title}}</td>
+      </tr>
+    </table>
+
+
+  </ng-container>
+
+  <ng-container *ngIf="actualMenu === menu.GENRES">
+    <h3>ZANRE</h3>
+
+    <form [formGroup]="form">
+      <input type="text" placeholder="Nazov zanru" formControlName="title">
+
+      <button type="button" (click)="saveGenre()">Ulozit</button>
+    </form>
+
+    <table *ngIf="genres.length">
+      <tr>
+        <th>Nazov zanru</th>
+      </tr>
+      <tr *ngFor="let genre of genres">
+        <td>{{genre.title}}</td>
+      </tr>
+    </table>
+  </ng-container>
 </div>
