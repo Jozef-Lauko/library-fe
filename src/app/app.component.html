@@ -1,15 +1,99 @@
-<div>
-  <label>Decimal:</label>
-  <input type="number" [(ngModel)]="decimal" (ngModelChange)="updateBinary()">
+<div class="header">
+  <button (click)="changeMenu(menu.USERS)">Users</button>
+  <button (click)="changeMenu(menu.BOOKS)">Books</button>
+  <button (click)="changeMenu(menu.GENRES)">Genre</button>
+  <button (click)="changeMenu(menu.BORROWINGS)">Borrowings</button>
 </div>
-<div>
-  <label>Binary:</label>
-  <input type="checkbox" [(ngModel)]="binary[7]" (ngModelChange)="updateDecimal()">
-  <input type="checkbox" [(ngModel)]="binary[6]" (ngModelChange)="updateDecimal()">
-  <input type="checkbox" [(ngModel)]="binary[5]" (ngModelChange)="updateDecimal()">
-  <input type="checkbox" [(ngModel)]="binary[4]" (ngModelChange)="updateDecimal()">
-  <input type="checkbox" [(ngModel)]="binary[3]" (ngModelChange)="updateDecimal()">
-  <input type="checkbox" [(ngModel)]="binary[2]" (ngModelChange)="updateDecimal()">
-  <input type="checkbox" [(ngModel)]="binary[1]" (ngModelChange)="updateDecimal()">
-  <input type="checkbox" [(ngModel)]="binary[0]" (ngModelChange)="updateDecimal()">
+
+<div class="container">
+  <ng-container *ngIf="actualMenu === menu.USERS">
+    <form [formGroup]="form">
+      <input type="number" placeholder="Id:" formControlName="id" /><br><br>
+      <input type="text" placeholder="Name:" formControlName="name" /><br><br>
+      <input type="number" placeholder="Contact:" formControlName="contact" /><br><br>
+
+      <button type="button" (click)="savePerson()" >Pridaj</button>
+    </form>
+
+    <table *ngIf="persons.length">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Contact</th>
+      </tr>
+      <tr *ngFor="let person of persons">
+        <td>{{person.id}}</td>
+        <td>{{person.name}}</td>
+        <td>{{person.contact}}</td>
+      </tr>
+    </table>
+  </ng-container>
+
+  <ng-container *ngIf="actualMenu === menu.BOOKS">
+    <form [formGroup]="form">
+      <input type="number" placeholder="Id:" formControlName="id" /><br><br>
+      <input type="text" placeholder="Book:" formControlName="name"><br><br>
+      <input type="text" placeholder="Author:" formControlName="author" /><br><br>
+      <input type="text" placeholder="Available:" formControlName="available"><br><br>
+
+      <button type="button" (click)="saveBook()">Pridaj</button>
+    </form>
+
+    <table *ngIf="books.length">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Available</th>
+      </tr>
+      <tr *ngFor="let book of books">
+        <td>{{book.id}}</td>
+        <td>{{book.name}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.available}}</td>
+      </tr>
+    </table>
+  </ng-container>
+
+  <ng-container *ngIf="actualMenu === menu.BORROWINGS">
+    <form [formGroup]="form">
+      <input type="number" placeholder="Id:" formControlName="id"><br><br>
+      <input type="text" placeholder="Book:" formControlName="book"><br><br>
+      <input type="text" placeholder="User:" formControlName="user"><br><br>
+
+      <button type="button" (click)="saveBorrowing()">Pridaj</button>
+    </form>
+
+    <table *ngIf="borrowings.length">
+      <tr>
+        <th>Id</th>
+        <th>Book</th>
+        <th>User</th>
+      </tr>
+      <tr *ngFor="let borrowing of borrowings">
+        <td>{{borrowing.id}}</td>
+        <td>{{borrowing.book}}</td>
+        <td>{{borrowing.user}}</td>
+      </tr>
+    </table>
+
+
+  </ng-container>
+
+  <ng-container *ngIf="actualMenu === menu.GENRES">
+    <form [formGroup]="form">
+      <input type="text" placeholder="Gener:" formControlName="title"><br><br>
+
+      <button type="button" (click)="saveGenre()">Zobraz</button>
+    </form>
+
+    <table *ngIf="genres.length">
+      <tr>
+        <th>Gener</th>
+      </tr>
+      <tr *ngFor="let genre of genres">
+        <td>{{genre.title}}</td>
+      </tr>
+    </table>
+  </ng-container>
 </div>

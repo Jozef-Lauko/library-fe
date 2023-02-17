@@ -1,0 +1,39 @@
+.header {
+  padding: 30px;
+  text-align: center;
+  background-color: cyan;
+  margin-bottom: 20px;
+}
+
+.header button {
+  margin: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.header button:hover {
+  text-decoration: underline;
+}
+
+.container {
+  text-align: center;
+}
+
+.container input {
+  margin-right: 10px;
+}
+
+.container table {
+  width: 500px;
+  border-collapse: collapse;
+  margin: 2rem auto auto;
+}
+.container th, td {
+  border: 1px solid;
+}
+.container th {
+  background-color: cyan;
+  font-size: 13pt;
+}
