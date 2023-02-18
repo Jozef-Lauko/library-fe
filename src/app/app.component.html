@@ -1,8 +1,6 @@
 <fieldset>
   <legend>Prevod z desiakovej sustavy do dvojkovej sustavy</legend>
     <div class="header">
-      <h1>{{ decimal }}</h1>
-      <h1>{{ binary }}</h1>
       <div>
         <label>Decimal: </label>
       <input type="number" [(ngModel)]="decimal" (ngModelChange)="updateBinary()">
