@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "library-fe": {
+    "DruhaHodina": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/library-fe",
+            "outputPath": "dist/druha-hodina",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "library-fe:build:production"
+              "browserTarget": "DruhaHodina:build:production"
             },
             "development": {
-              "browserTarget": "library-fe:build:development"
+              "browserTarget": "DruhaHodina:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "library-fe:build"
+            "browserTarget": "DruhaHodina:build"
           }
         },
         "test": {
@@ -96,6 +96,6 @@
     }
   },
   "cli": {
-    "analytics": "b3392717-5904-4fdb-8b63-7a2ddf3dda3e"
+    "analytics": "0c74c4a6-449b-4c9c-82a5-a830958fe0c2"
   }
 }

@@ -1,26 +1,70 @@
 import { Component } from '@angular/core';
+import {FormControl, FormGroup, Validator, Validators} from "@angular/forms";
+import {User} from "./model/user.model";
+
+export enum Menu{
+  BOOK = 'BOOKS',
+  USERS = 'USERS',
+  BORROWINGS = 'BORROWINGS',
+  GENRES = 'GENRES',
+}
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  decimal = 0;
-  binary = [false,false,false,false,false,false,false,false];
 
-  updateBinary() {
-    let decimal = this.decimal;
-    for (let i = 0; i <= 7; i++) {
-      this.binary[i] = decimal % 2 === 1;
-      decimal = Math.floor(decimal / 2);
-    }
+export class AppComponent {
+  form: FormGroup;
+
+  books: Array<{
+    title: string;
+    surname: string;
+  }> = [];
+
+  borrowings: Array<{
+    name: string;
+    title: string
+    dateOfBorrowing: number
+  }> = [];
+
+  genres: Array<{
+    name: string;
+  }> = [];
+
+
+  menu = Menu;
+  actualMenu = Menu.USERS;
+
+  constructor() {
+    this.form = new FormGroup({
+      name: new FormControl(null, Validators.required),
+      surname: new FormControl(null, [Validators.required, Validators.minLength(3)]),  //mozem si upresnit dlzku priezviska
+      title: new FormControl(),
+      dateOfBorrowing: new FormControl(),
+    })
   }
 
-  updateDecimal() {
-    this.decimal = 0;
-    for (let i = 0; i <= 7; i++) {
-      this.decimal += this.binary[i] ? Math.pow(2, i) : 0;
-    }
+  saveBook(): void{
+    this.books.push(this.form.value);
+    this.form.reset();
+  }
+
+  saveBorrowing(): void{
+    this.borrowings.push(this.form.value);
+    this.form.reset();
+  }
+
+  saveGenre(): void{
+    this.genres.push(this.form.value);
+    this.form.reset();
+  }
+
+
+
+  changeMenu(menuItem: Menu): void{
+    this.actualMenu = menuItem;
   }
 }
+
