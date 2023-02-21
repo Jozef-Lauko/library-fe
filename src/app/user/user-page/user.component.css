@@ -1,22 +1,3 @@
-.header {
-  padding: 30px;
-  text-align: center;
-  background: #9CCAE6;
-  margin-bottom: 50px;
-}
-
-.header button {
-  margin: 10px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 30px;
-}
-
-.header button:hover {
-  text-decoration: underline;
-}
-
 .container {
   text-align: center;
 }
