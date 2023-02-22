@@ -1,8 +1,13 @@
 .header {
   padding: 30px;
   text-align: center;
+<<<<<<< HEAD
   background-color: cyan;
   margin-bottom: 20px;
+=======
+  background: #9CCAE6;
+  margin-bottom: 50px;
+>>>>>>> 5c795fe8bc2d54b112a544d3a8202fd3d0640cac
 }
 
 .header button {
@@ -20,6 +25,7 @@
 .container {
   text-align: center;
 }
+<<<<<<< HEAD
 
 .container input {
   margin-right: 10px;
@@ -37,3 +43,5 @@
   background-color: cyan;
   font-size: 13pt;
 }
+=======
+>>>>>>> 5c795fe8bc2d54b112a544d3a8202fd3d0640cac

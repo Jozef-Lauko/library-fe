@@ -1,12 +1,20 @@
 <div class="header">
+<<<<<<< HEAD
   <button (click)="changeMenu(menu.USERS)">Users</button>
   <button (click)="changeMenu(menu.BOOKS)">Books</button>
   <button (click)="changeMenu(menu.GENRES)">Genre</button>
   <button (click)="changeMenu(menu.BORROWINGS)">Borrowings</button>
+=======
+  <button routerLink="/user">POUZIVATELIA</button>
+  <button (click)="changeMenu(menu.BOOKS)">KNIHY</button>
+  <button (click)="changeMenu(menu.GENRES)">ZANRE</button>
+  <button routerLink="/borrowings">VYPOZICKY</button>
+>>>>>>> 5c795fe8bc2d54b112a544d3a8202fd3d0640cac
 </div>
 
 <div class="container">
   <ng-container *ngIf="actualMenu === menu.USERS">
+<<<<<<< HEAD
     <form [formGroup]="form">
       <input type="number" placeholder="Id:" formControlName="id" /><br><br>
       <input type="text" placeholder="Name:" formControlName="name" /><br><br>
@@ -96,4 +104,50 @@
       </tr>
     </table>
   </ng-container>
+=======
+    <router-outlet></router-outlet>
+  </ng-container>
+
+<!--  <ng-container *ngIf="actualMenu === menu.BOOKS">-->
+<!--    <h3>KNIHY</h3>-->
+
+<!--    <form [formGroup]="form">-->
+<!--      <input type="text" placeholder="Nazov knihy" formControlName="title">-->
+
+<!--      <button type="button" (click)="saveBook()">Ulozit</button>-->
+<!--    </form>-->
+
+<!--    <table *ngIf="books.length">-->
+<!--      <tr>-->
+<!--        <th>Nazov knihy</th>-->
+<!--      </tr>-->
+<!--      <tr *ngFor="let book of books">-->
+<!--        <td>{{book.title}}</td>-->
+<!--      </tr>-->
+<!--    </table>-->
+<!--  </ng-container>-->
+
+  <ng-container *ngIf="actualMenu === menu.BORROWINGS">
+
+  </ng-container>
+
+<!--  <ng-container *ngIf="actualMenu === menu.GENRES">-->
+<!--    <h3>ZANRE</h3>-->
+
+<!--    <form [formGroup]="form">-->
+<!--      <input type="text" placeholder="Nazov zanru" formControlName="title">-->
+
+<!--      <button type="button" (click)="saveGenre()">Ulozit</button>-->
+<!--    </form>-->
+
+<!--    <table *ngIf="genres.length">-->
+<!--      <tr>-->
+<!--        <th>Nazov zanru</th>-->
+<!--      </tr>-->
+<!--      <tr *ngFor="let genre of genres">-->
+<!--        <td>{{genre.title}}</td>-->
+<!--      </tr>-->
+<!--    </table>-->
+<!--  </ng-container>-->
+>>>>>>> 5c795fe8bc2d54b112a544d3a8202fd3d0640cac
 </div>
