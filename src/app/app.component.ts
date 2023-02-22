@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validator, Validators} from "@angular/forms";
+import {User} from "./model/user.model";
 
 export enum Menu {
   BOOKS = "BOOKS",
@@ -19,8 +20,8 @@ export class AppComponent {
 
   constructor() {
     this.form = new FormGroup({
-      name: new FormControl(),
-      surname: new FormControl(),
+      name: new FormControl(null, Validators.required),
+      surname: new FormControl(null, [Validators.required, Validators.max(20)]),
       title: new FormControl()
     })
   }
@@ -28,38 +29,16 @@ export class AppComponent {
   menu = Menu;
   actualMenu: Menu = Menu.USERS
 
-  persons: Array<{
-    name: string,
-    surname: string
-  }> = [];
-
   books: Array<{
     title: string
-  }> = [];
-
-  borrowings: Array<{
-    name: string,
-    surname: string,
-    title: string,
   }> = [];
 
   genres: Array<{
     title: string
   }> = [];
 
-  savePerson(): void{
-    this.persons.push(this.form.value);
-    //reset formu
-    this.form.reset();
-  }
-
   saveBook(): void{
     this.books.push(this.form.value);
-    this.form.reset();
-  }
-
-  saveBorrowing(): void{
-    this.borrowings.push(this.form.value);
     this.form.reset();
   }
 

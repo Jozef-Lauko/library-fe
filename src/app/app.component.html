@@ -1,95 +1,54 @@
 <div class="header">
-  <button (click)="changeMenu(menu.USERS)">POUZIVATELIA</button>
+  <button routerLink="/user">POUZIVATELIA</button>
   <button (click)="changeMenu(menu.BOOKS)">KNIHY</button>
   <button (click)="changeMenu(menu.GENRES)">ZANRE</button>
-  <button (click)="changeMenu(menu.BORROWINGS)">VYPOZICKY</button>
+  <button routerLink="/borrowings">VYPOZICKY</button>
 </div>
 
 <div class="container">
   <ng-container *ngIf="actualMenu === menu.USERS">
-    <h3>POUZIVATELIA</h3>
-
-    <form [formGroup]="form">
-      <input type="text" placeholder="Meno" formControlName="name" />
-      <input type="text" placeholder="Priezvisko" formControlName="surname" />
-
-      <button type="button" (click)="savePerson()" >Ulozit</button>
-    </form>
-
-    <table *ngIf="persons.length">
-      <tr>
-        <th>Meno</th>
-        <th>Priezvisko</th>
-      </tr>
-      <tr *ngFor="let person of persons">
-        <td>{{person.name}}</td>
-        <td>{{person.surname}}</td>
-      </tr>
-    </table>
+    <router-outlet></router-outlet>
   </ng-container>
 
-  <ng-container *ngIf="actualMenu === menu.BOOKS">
-    <h3>KNIHY</h3>
+<!--  <ng-container *ngIf="actualMenu === menu.BOOKS">-->
+<!--    <h3>KNIHY</h3>-->
 
-    <form [formGroup]="form">
-      <input type="text" placeholder="Nazov knihy" formControlName="title">
+<!--    <form [formGroup]="form">-->
+<!--      <input type="text" placeholder="Nazov knihy" formControlName="title">-->
 
-      <button type="button" (click)="saveBook()">Ulozit</button>
-    </form>
+<!--      <button type="button" (click)="saveBook()">Ulozit</button>-->
+<!--    </form>-->
 
-    <table *ngIf="books.length">
-      <tr>
-        <th>Nazov knihy</th>
-      </tr>
-      <tr *ngFor="let book of books">
-        <td>{{book.title}}</td>
-      </tr>
-    </table>
-  </ng-container>
+<!--    <table *ngIf="books.length">-->
+<!--      <tr>-->
+<!--        <th>Nazov knihy</th>-->
+<!--      </tr>-->
+<!--      <tr *ngFor="let book of books">-->
+<!--        <td>{{book.title}}</td>-->
+<!--      </tr>-->
+<!--    </table>-->
+<!--  </ng-container>-->
 
   <ng-container *ngIf="actualMenu === menu.BORROWINGS">
-    <h3>VYPOZICKY</h3>
-
-    <form [formGroup]="form">
-      <input type="text" placeholder="Meno" formControlName="name">
-      <input type="text" placeholder="Priezvisko" formControlName="surname">
-      <input type="text" placeholder="Nazov knihy" formControlName="title">
-
-      <button type="button" (click)="saveBorrowing()">Ulozit</button>
-    </form>
-
-    <table *ngIf="borrowings.length">
-      <tr>
-        <th>Meno</th>
-        <th>Priezvisko</th>
-        <th>Nazov knihy</th>
-      </tr>
-      <tr *ngFor="let borrowing of borrowings">
-        <td>{{borrowing.name}}</td>
-        <td>{{borrowing.surname}}</td>
-        <td>{{borrowing.title}}</td>
-      </tr>
-    </table>
-
-
+    <router-outlet></router-outlet>
   </ng-container>
 
-  <ng-container *ngIf="actualMenu === menu.GENRES">
-    <h3>ZANRE</h3>
+<!--  <ng-container *ngIf="actualMenu === menu.GENRES">-->
+<!--    <h3>ZANRE</h3>-->
 
-    <form [formGroup]="form">
-      <input type="text" placeholder="Nazov zanru" formControlName="title">
+<!--    <form [formGroup]="form">-->
+<!--      <input type="text" placeholder="Nazov zanru" formControlName="title">-->
 
-      <button type="button" (click)="saveGenre()">Ulozit</button>
-    </form>
+<!--      <button type="button" (click)="saveGenre()">Ulozit</button>-->
+<!--    </form>-->
 
-    <table *ngIf="genres.length">
-      <tr>
-        <th>Nazov zanru</th>
-      </tr>
-      <tr *ngFor="let genre of genres">
-        <td>{{genre.title}}</td>
-      </tr>
-    </table>
-  </ng-container>
+<!--    <table *ngIf="genres.length">-->
+<!--      <tr>-->
+<!--        <th>Nazov zanru</th>-->
+<!--      </tr>-->
+<!--      <tr *ngFor="let genre of genres">-->
+<!--        <td>{{genre.title}}</td>-->
+<!--      </tr>-->
+<!--    </table>-->
+<!--  </ng-container>-->
 </div>
