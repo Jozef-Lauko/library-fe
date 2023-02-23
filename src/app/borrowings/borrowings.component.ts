@@ -15,8 +15,8 @@ export class BorrowingsComponent {
   constructor() {
     this.form = new FormGroup({
       name: new FormControl(null, Validators.required),
-      surname: new FormControl(null, [Validators.required, Validators.max(20)]),
-      title: new FormControl()
+      surname: new FormControl(null, [Validators.required, Validators.minLength(3)]),
+      title: new FormControl(null, Validators.required)
     })
   }
 
