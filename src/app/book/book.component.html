@@ -1,0 +1,47 @@
+<div class="container">
+  <h3>KNIHY</h3>
+
+  <form [formGroup]="form">
+    <label>
+      <input type="text" placeholder="Nazov" formControlName="title">
+    </label>
+
+    <label>
+      <input type="text" placeholder="Meno autora" formControlName="authorFirstName">
+    </label>
+
+    <label>
+      <input type="text" placeholder="Priezvisko autora" formControlName="authorLastName">
+    </label>
+
+    <label>
+      <input type="number" placeholder="Dostupnych" formControlName="available">
+    </label>
+
+    <button type="button" (click)="saveBook()">Ulozit</button>
+
+    <p class="invalid-text" *ngIf="form.controls.title.invalid">Zadajte názov knihy</p>
+    <p class="invalid-text" *ngIf="form.controls.authorFirstName.invalid">Zadajte meno autora</p>
+    <p class="invalid-text" *ngIf="form.controls.authorLastName.errors?.required">Zadajte priezvisko autora</p>
+    <p class="invalid-text" *ngIf="form.controls.authorLastName.errors?.minlength">Minimalna dlzka priezviska su 3 znaky</p>
+    <p class="invalid-text" *ngIf="form.controls.available.invalid">Zadajte pocet dostupnych kópii</p>
+  </form>
+
+  <table *ngIf="books.length">
+    <tr>
+      <th>Nazov knihy</th>
+      <th>Meno autora</th>
+      <th>Priezvisko autora</th>
+      <th>Dostupne kopie</th>
+    </tr>
+    <tr *ngFor="let book of books ; let i = index">
+      <td>{{book.title}}</td>
+      <td>{{book.authorFirstName}}</td>
+      <td>{{book.authorLastName}}</td>
+      <td>{{book.available}}</td>
+      <button (click)="deleteBook(i)">Zmazat</button>
+      <button (click)="editBook(i)">Upravit</button>
+    </tr>
+  </table>
+
+</div>
