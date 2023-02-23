@@ -1,0 +1,34 @@
+<h3>POUŽÍVATELIA</h3>
+<form [formGroup]="form">
+  <label>Meno:
+    <input type="text" formControlName="name"/>
+  </label>
+  <p class="invalid-text" *ngIf="form.controls.name.invalid">Zadajte meno</p>
+  <label>Priezvisko:
+    <input type="text" formControlName="surname"/>
+  </label>
+  <p *ngIf="form.controls.surname.errors?.minlength" class="invalid-text">
+    Minimalna dlzka je 3 znaky
+  </p>
+  <p *ngIf="form.controls.surname.errors?.required" class="invalid-text">
+    Zadajte priezvisko
+  </p>
+
+
+  <button type="button" [disabled]="form.invalid" (click)="savePerson()">Uložiť</button>
+</form>
+
+<table *ngIf="persons.length">
+  <tr>
+    <th>Meno</th>
+    <th>Priezvisko</th>
+  </tr>
+  <tr *ngFor="let person of persons; let i = index">
+    <td>{{ person.name }}</td>
+    <td>{{ person.surname }}</td>
+    <td>
+      <button (click)="editPerson(i)">Upravit</button>
+      <button (click)="deletePerson(i)">Zmazat</button>
+    </td>
+  </tr>
+</table>
