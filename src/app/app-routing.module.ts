@@ -1,31 +1,14 @@
 import { NgModule } from '@angular/core';
-import {UserPageComponent} from "./user/user-page/user.component";
-import {RouterModule, Routes} from "@angular/router";
-import {BorrowingsPageComponent} from "./borrowings/borrowings-page/borrowings-page.component";
+import { RouterModule, Routes } from '@angular/router';
+import {UserComponent} from "./user/user.component";
 
-const routes: Routes = [
-  {
-    path: 'user',
-    component: UserPageComponent
-  },
-  {
-    path: 'borrowings',
-    component: BorrowingsPageComponent
-  }
-]
+const routes: Routes = [{
+  path: 'user',
+  component: UserComponent
+}];
 
 @NgModule({
-  declarations: [],
-  imports: [
-    RouterModule.forRoot(routes)
-  ],
-
-  exports: [
-    RouterModule
-  ]
-
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule { }
