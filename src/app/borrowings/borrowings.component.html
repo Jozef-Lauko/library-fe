@@ -1,0 +1,40 @@
+<div class="container">
+  <h3>VYPOZICKY</h3>
+
+  <form [formGroup]="form">
+    <label>
+      <input type="text" placeholder="Meno" formControlName="name">
+    </label>
+
+    <label>
+      <input type="text" placeholder="Priezvisko" formControlName="surname">
+    </label>
+
+    <label>
+      <input type="text" placeholder="Nazov knihy" formControlName="title">
+    </label>
+
+    <button type="button" (click)="saveBorrowing()">Ulozit</button>
+
+    <p class="invalid-text" *ngIf="form.controls.name.invalid">Zadajte meno</p>
+    <p class="invalid-text" *ngIf="form.controls.surname.errors?.required">Zadajte priezvisko</p>
+    <p class="invalid-text" *ngIf="form.controls.surname.errors?.minlength">Minimalna dlzka priezviska su 3 znaky</p>
+    <p class="invalid-text" *ngIf="form.controls.title.invalid">Zadajte Nazov knihy</p>
+  </form>
+
+  <table *ngIf="borrowings.length">
+    <tr>
+      <th>Meno</th>
+      <th>Priezvisko</th>
+      <th>Nazov knihy</th>
+    </tr>
+    <tr *ngFor="let borrowing of borrowings ; let i = index">
+      <td>{{borrowing.name}}</td>
+      <td>{{borrowing.surname}}</td>
+      <td>{{borrowing.title}}</td>
+      <button (click)="deleteBorrowing(i)">Zmazat</button>
+      <button (click)="editBorrowing(i)">Upravit</button>
+    </tr>
+  </table>
+
+</div>
