@@ -18,7 +18,7 @@ const routes: Routes = [
     component: BorrowingsComponent
   }
   ];
-    
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

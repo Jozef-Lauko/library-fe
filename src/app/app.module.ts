@@ -7,13 +7,17 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { UserComponent } from './user/user.component';
 import {BookComponent} from "./book/book.component";
 import {BorrowingsComponent} from "./borrowings/borrowings.component";
+import { UserFormComponent } from './user/user-form/user-form.component';
+import { UserListComponent } from './user/user-list/user-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     BookComponent,
-    BorrowingsComponent
+    BorrowingsComponent,
+    UserFormComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
