@@ -1,14 +1,13 @@
 <table *ngIf="persons.length">
   <tr>
-    <th>Meno</th>
-    <th>Priezvisko</th>
+    <th>Meno</th><th>Priezvisko</th>
   </tr>
-  <tr *ngFor="let person of persons; let i = index">
+  <tr *ngFor="let person of persons">
     <td>{{ person.name }}</td>
     <td>{{ person.surname }}</td>
     <td>
-      <button (click)="editPerson(i)">Upravit</button>
-      <button (click)="deletePerson(i)">Zmazat</button>
+      <button (click)="updatePerson(person.id)">Upraviť</button>
+      <button (click)="deletePerson(person.id)">Zmazať</button>
     </td>
   </tr>
-</table><p>user-list works!</p>
+</table>

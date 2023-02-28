@@ -17,8 +17,6 @@ export enum Menu {
 })
 
 export class AppComponent {
-
-
   menu = Menu;
   actualMenu = Menu.USERS;
 
@@ -26,22 +24,11 @@ export class AppComponent {
 
   }
 
-
-
   changeMenu(menuItem: Menu): void {
     switch (menuItem) {
-      case Menu.USERS:
-        this.router.navigate(['user']);
-        break;
-      case Menu.BOOKS:
-        this.router.navigate(['book']);
-        break;
-      case Menu.GENRES:
-        this.router.navigate(['genres']);
-        break;
-      case Menu.BORROWINGS:
-        this.router.navigate(['borrowings']);
-        break;
+      case Menu.USERS: this.router.navigate(['user']); break;
+      case Menu.BOOKS: this.router.navigate(['book']); break;
+      case Menu.BORROWINGS: this.router.navigate(['borrowing']); break;
     }
   }
 }

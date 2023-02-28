@@ -1,18 +1,12 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (submit)="savePerson()">
   <label>Meno:
-    <input type="text" formControlName="name"/>
+    <input type="text" formControlName="name" />
   </label>
-  <p class="invalid-text" *ngIf="form.controls.name.invalid">Zadajte meno</p>
+  <p *ngIf="form.controls.name.invalid" class="invalid-text">Zadajte meno</p>
   <label>Priezvisko:
-    <input type="text" formControlName="surname"/>
+    <input type="text" formControlName="surname" />
   </label>
-  <p *ngIf="form.controls.surname.errors?.minlength" class="invalid-text">
-    Minimalna dlzka je 3 znaky
-  </p>
-  <p *ngIf="form.controls.surname.errors?.required" class="invalid-text">
-    Zadajte priezvisko
-  </p>
-
-
-  <button type="button" [disabled]="form.invalid" (click)="savePerson()">Uložiť</button>
+  <p *ngIf="form.controls.surname.errors?.minlength" class="invalid-text">Zadajte priezvisko</p>
+  <p *ngIf="form.controls.surname.errors?.required" class="invalid-text">Minimálna dĺžka priezviska sú 3 znaky</p>
+  <button type="submit" [disabled]="form.invalid">Uložiť</button>
 </form>
