@@ -10,6 +10,10 @@ const routes: Routes = [
     component: UserPageComponent
   },
   {
+    path: 'borrowing',
+    component: BorrowingsComponent
+  },
+  {
     path: '',
     redirectTo: 'user',
     pathMatch: 'full'

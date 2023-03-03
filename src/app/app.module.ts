@@ -10,6 +10,8 @@ import { UserPageComponent } from './user/user-page.component';
 import { UserFormComponent } from './user/user-form/user-form.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 import {HttpClientModule} from "@angular/common/http";
+import { BorrowingFormComponent } from './borrowings/borrowing-form/borrowing-form.component';
+import { BorrowingListComponent } from './borrowings/borrowing-list/borrowing-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import {HttpClientModule} from "@angular/common/http";
     BorrowingsComponent,
     UserPageComponent,
     UserFormComponent,
-    UserListComponent
+    UserListComponent,
+    BorrowingFormComponent,
+    BorrowingListComponent
   ],
   imports: [
     BrowserModule,

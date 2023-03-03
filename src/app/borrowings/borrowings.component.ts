@@ -10,32 +10,34 @@ import {Borrowing} from "../model/borrowing.model";
 })
 
 export class BorrowingsComponent {
-  form: FormGroup;
-
-  constructor() {
-    this.form = new FormGroup({
-      name: new FormControl(null, Validators.required),
-      surname: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-      title: new FormControl(null, Validators.required)
-    })
-  }
 
   menu = Menu;
   actualMenu: Menu = Menu.USERS;
 
   borrowings: Array<Borrowing>= [];
+  borrowing?: Borrowing;
 
-  saveBorrowing(): void{
-    this.borrowings.push(this.form.value);
-    this.form.reset();
+  createBorrowing(borrowing: Borrowing) {
+    this.borrowings.push(borrowing);
   }
 
-  deleteBorrowing(index: number): void {
-    this.borrowings.splice(index, 1);
+  updateBorrowing(borrowing: Borrowing) {
+    const index = this.borrowings.findIndex(
+      borrowing => borrowing.id === borrowing.id);
+    if (index !== -1) {
+      this.borrowings[index] = borrowing;
+      this.borrowing = undefined;
+    }
   }
 
-  editBorrowing(index: number): void {
-    this.form.setValue(this.borrowings[index]);
-    this.deleteBorrowing(index);
+  selectBorrowingToUpdate(borrowingId: number): void {
+    this.borrowing = this.borrowings.find(
+      borrowing => borrowing.id === borrowingId);
+  }
+
+  deleteBorrowing(borrowingId: number): void {
+    const index = this.borrowings.findIndex(borrowing =>
+      borrowing.id === borrowingId);
+    if (index !== -1) { this.borrowings.splice(index, 1); }
   }
 }
