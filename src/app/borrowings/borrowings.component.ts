@@ -21,12 +21,11 @@ export class BorrowingsComponent {
     this.borrowings.push(borrowing);
   }
 
-  updateBorrowing(borrowing: Borrowing) {
+  updateBorrowing(tmp: Borrowing) {
     const index = this.borrowings.findIndex(
-      borrowing => borrowing.id === borrowing.id);
+      borrowing => borrowing.id === tmp.id);
     if (index !== -1) {
-      this.borrowings[index] = borrowing;
-      this.borrowing = undefined;
+      this.borrowings[index] = tmp;
     }
   }
 
