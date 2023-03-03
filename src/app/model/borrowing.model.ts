@@ -1,5 +1,6 @@
 export interface Borrowing {
-  name: string,
-  surname: string,
-  title: string,
+  id: number,
+  borrowerName: string,
+  borrowerSurname: string,
+  bookTitle: string,
 }
