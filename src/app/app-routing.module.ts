@@ -14,6 +14,10 @@ const routes: Routes = [
     component: BorrowingsComponent
   },
   {
+    path: 'book',
+    component: BookComponent
+  },
+  {
     path: '',
     redirectTo: 'user',
     pathMatch: 'full'

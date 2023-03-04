@@ -8,6 +8,9 @@
   <button routerLink="borrowing">
     VÝPOŽIČKY
   </button>
+  <button routerLink="genre">
+    ŽÁNRE
+  </button>
 </div>
 
 <div class="container">
@@ -19,26 +22,12 @@
     <router-outlet></router-outlet>
   </ng-container>
 
-<ng-container *ngIf="actualMenu === menu.BORROWINGS">
-  <router-outlet></router-outlet>
-</ng-container>
+  <ng-container *ngIf="actualMenu === menu.BORROWINGS">
+    <router-outlet></router-outlet>
+  </ng-container>
 
-<!--  <ng-container *ngIf="actualMenu === menu.GENRES">-->
-<!--    <h3>ZANRE</h3>-->
+  <ng-container *ngIf="actualMenu === menu.GENRES">
+    <router-outlet></router-outlet>
+  </ng-container>
 
-<!--    <form [formGroup]="form">-->
-<!--      <input type="text" placeholder="Nazov zanru" formControlName="title">-->
-
-<!--      <button type="button" (click)="saveGenre()">Ulozit</button>-->
-<!--    </form>-->
-
-<!--    <table *ngIf="genres.length">-->
-<!--      <tr>-->
-<!--        <th>Nazov zanru</th>-->
-<!--      </tr>-->
-<!--      <tr *ngFor="let genre of genres">-->
-<!--        <td>{{genre.title}}</td>-->
-<!--      </tr>-->
-<!--    </table>-->
-<!--  </ng-container>-->
 </div>

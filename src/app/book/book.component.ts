@@ -10,35 +10,31 @@ import {Book} from "../model/book.model";
 })
 
 export class BookComponent {
-  form: FormGroup;
-
-
-  constructor() {
-    this.form = new FormGroup({
-      title: new FormControl(null, Validators.required),
-      authorFirstName: new FormControl(null, Validators.required),
-      authorLastName: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-      available: new FormControl(null, Validators.required)
-    });
-  }
-
   menu = Menu;
   actualMenu: Menu = Menu.BOOKS;
 
   books: Array<Book> = [];
+  book?: Book;
 
-  saveBook(): void{
-    this.books.push(this.form.value);
-    this.form.reset();
+  createBook(book: Book){
+    this.books.push(book);
   }
 
-  deleteBook(index: number): void{
-    this.books.splice(index, 1);
+  updateBook(book: Book){
+    const index = this.books.findIndex(book => book.id === book.id);
+    if (index !== -1){
+      this.books[index] = book;
+      this.book = undefined;
+    }
   }
 
-  editBook(index: number): void{
-    this.form.setValue(this.books[index]);
-    this.deleteBook(index);
+  selectBookToUpdate(bookId: number): void{
+    this.book = this.books.find(book => book.id === bookId);
+  }
+
+  deleteBook(bookId: number): void{
+    const index = this.books.findIndex(book => book.id === bookId);
+    if (index !== -1){ this.books.splice(index, 1); }
   }
 }
 
