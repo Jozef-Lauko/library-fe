@@ -1,8 +1,23 @@
 <div class="header">
+<<<<<<< HEAD
   <button routerLink="/user">POUZIVATELIA</button>
   <button (click)="changeMenu(menu.BOOKS)">KNIHY</button>
   <button routerLink="/genres">ZANRE</button>
   <button routerLink="/borrowings">VYPOZICKY</button>
+=======
+  <button routerLink="user">
+    POUŽÍVATELIA
+  </button>
+  <button routerLink="book">
+    KNIHY
+  </button>
+  <button routerLink="borrowing">
+    VÝPOŽIČKY
+  </button>
+  <button routerLink="genre">
+    ŽÁNRE
+  </button>
+>>>>>>> 8e2e4cc08e56f08787cac681ef063d55ce83510c
 </div>
 
 <div class="container">
@@ -10,15 +25,19 @@
     <router-outlet></router-outlet>
   </ng-container>
 
-<!--  <ng-container *ngIf="actualMenu === menu.BOOKS">-->
-<!--    <h3>KNIHY</h3>-->
+  <ng-container *ngIf="actualMenu === menu.BOOKS">
+    <router-outlet></router-outlet>
+  </ng-container>
 
-<!--    <form [formGroup]="form">-->
-<!--      <input type="text" placeholder="Nazov knihy" formControlName="title">-->
+  <ng-container *ngIf="actualMenu === menu.BORROWINGS">
+    <router-outlet></router-outlet>
+  </ng-container>
 
-<!--      <button type="button" (click)="saveBook()">Ulozit</button>-->
-<!--    </form>-->
+  <ng-container *ngIf="actualMenu === menu.GENRES">
+    <router-outlet></router-outlet>
+  </ng-container>
 
+<<<<<<< HEAD
 <!--    <table *ngIf="books.length">-->
 <!--      <tr>-->
 <!--        <th>Nazov knihy</th>-->
@@ -36,4 +55,6 @@
     <router-outlet></router-outlet>
   </ng-container>
 
+=======
+>>>>>>> 8e2e4cc08e56f08787cac681ef063d55ce83510c
 </div>
