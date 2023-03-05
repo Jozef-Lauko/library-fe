@@ -20,7 +20,7 @@ const routes: Routes = [
     component: BookComponent
   },
   {
-    path: 'genres',
+    path: 'category',
     component: CategoryComponent
   },
   {

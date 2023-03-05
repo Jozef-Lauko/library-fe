@@ -1,0 +1,12 @@
+<div class="container">
+  <p class="invalid-text" *ngIf="form.controls.title.invalid">Zadajte zaner</p>
+
+  <form [formGroup]="form" (submit)="saveCategory()">
+    <label>
+      <input type="text" placeholder="Nazov" formControlName="title">
+    </label>
+
+    <button class="submit-btn" type="submit" [disabled]="form.invalid">Ulozit</button>
+  </form>
+
+</div>
