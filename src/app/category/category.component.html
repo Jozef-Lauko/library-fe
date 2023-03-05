@@ -1,21 +1,16 @@
 <div class="container">
-<h3>ZANRE</h3>
+  <h3>Kategorie</h3>
 
-<form [formGroup]="form">
-  <input type="text" placeholder="Nazov zanru" formControlName="title">
+  <app-category-form
+    [CategoryData]="category"
+    (formCreate)="createCategory($event)"
+    (formUpdate)="updateCategory($event)" >
+  </app-category-form>
 
-  <button type="button" (click)="saveCategory()">Ulozit</button>
-  <p class="invalid-text" *ngIf="form.controls.title.invalid">Zadajte názov zanru</p>
-</form>
+  <app-category-list
+    [categories]="categories"
+    (categoryToUpdate)="selectCategoryToUpdate($event)"
+    (categoryToDelete)="deleteCategory($event)">
+  </app-category-list>
 
-<table *ngIf="categories.length">
-  <tr>
-    <th>Nazov zanru</th>
-  </tr>
-  <tr *ngFor="let category of categories; let i = index">
-    <td>{{category.title}}</td>
-    <button (click)="editCategory(i)">Upravit</button>
-    <button (click)="deleteCategory(i)">Zmazat</button>
-  </tr>
-</table>
 </div>
