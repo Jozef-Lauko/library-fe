@@ -1,8 +1,16 @@
 <div class="header">
-  <button routerLink="/user">POUZIVATELIA</button>
-  <button (click)="changeMenu(menu.BOOKS)">KNIHY</button>
-  <button routerLink="/genres">ZANRE</button>
-  <button routerLink="/borrowings">VYPOZICKY</button>
+  <button routerLink="user">
+    POUŽÍVATELIA
+  </button>
+  <button routerLink="book">
+    KNIHY
+  </button>
+  <button routerLink="borrowing">
+    VÝPOŽIČKY
+  </button>
+  <button routerLink="genres">
+    ŽÁNRE
+  </button>
 </div>
 
 <div class="container">
@@ -10,27 +18,13 @@
     <router-outlet></router-outlet>
   </ng-container>
 
-<!--  <ng-container *ngIf="actualMenu === menu.BOOKS">-->
-<!--    <h3>KNIHY</h3>-->
+  <ng-container *ngIf="actualMenu === menu.BOOKS">
+    <router-outlet></router-outlet>
+  </ng-container>
 
-<!--    <form [formGroup]="form">-->
-<!--      <input type="text" placeholder="Nazov knihy" formControlName="title">-->
-
-<!--      <button type="button" (click)="saveBook()">Ulozit</button>-->
-<!--    </form>-->
-
-<!--    <table *ngIf="books.length">-->
-<!--      <tr>-->
-<!--        <th>Nazov knihy</th>-->
-<!--      </tr>-->
-<!--      <tr *ngFor="let book of books">-->
-<!--        <td>{{book.title}}</td>-->
-<!--      </tr>-->
-<!--    </table>-->
-<!--  </ng-container>-->
-<!--  <ng-container *ngIf="actualMenu === menu.BORROWINGS">-->
-<!--  -->
-<!--  </ng-container>-->
+  <ng-container *ngIf="actualMenu === menu.BORROWINGS">
+    <router-outlet></router-outlet>
+  </ng-container>
 
   <ng-container *ngIf="actualMenu === menu.GENRES">
     <router-outlet></router-outlet>

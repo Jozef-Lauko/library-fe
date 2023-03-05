@@ -1,0 +1,20 @@
+<div class="container">
+  <table *ngIf="books.length">
+    <tr>
+      <th>Nazov knihy</th>
+      <th>Meno autora</th>
+      <th>Priezvisko autora</th>
+      <th>Dostupne kopie</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let book of books">
+      <td>{{book.title}}</td>
+      <td>{{book.authorFirstName}}</td>
+      <td>{{book.authorLastName}}</td>
+      <td>{{book.available}}</td>
+      <td><button class="delete-btn" (click)="deleteBook(book.id)">Zmazat</button></td>
+      <td><button class="edit-btn" (click)="updateBook(book.id)">Upravit</button></td>
+    </tr>
+  </table>
+</div>

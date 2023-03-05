@@ -1,0 +1,27 @@
+<div class="container">
+  <p class="invalid-text" *ngIf="form.controls.title.invalid">Zadajte názov knihy</p>
+  <p class="invalid-text" *ngIf="form.controls.authorFirstName.invalid">Zadajte meno autora</p>
+  <p class="invalid-text" *ngIf="form.controls.authorLastName.errors?.required">Zadajte priezvisko autora</p>
+  <p class="invalid-text" *ngIf="form.controls.authorLastName.errors?.minlength">Minimalna dlzka priezviska su 3 znaky</p>
+  <p class="invalid-text" *ngIf="form.controls.available.invalid">Zadajte pocet dostupnych kópii</p>
+
+  <form [formGroup]="form" (submit)="saveBook()">
+    <label>
+      <input type="text" placeholder="Nazov" formControlName="title">
+    </label>
+
+    <label>
+      <input type="text" placeholder="Meno autora" formControlName="authorFirstName">
+    </label>
+
+    <label>
+      <input type="text" placeholder="Priezvisko autora" formControlName="authorLastName">
+    </label>
+
+    <label>
+      <input type="number" placeholder="Dostupnych" formControlName="available">
+    </label>
+
+    <button class="submit-btn" type="submit" [disabled]="form.invalid">Ulozit</button>
+  </form>
+</div>
