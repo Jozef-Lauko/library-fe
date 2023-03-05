@@ -1,10 +1,10 @@
 <div class="header">
-<<<<<<< HEAD
+
   <button routerLink="/user">POUZIVATELIA</button>
-  <button (click)="changeMenu(menu.BOOKS)">KNIHY</button>
+  <button routerLink="/book">KNIHY</button>
   <button routerLink="/genres">ZANRE</button>
   <button routerLink="/borrowings">VYPOZICKY</button>
-=======
+
   <button routerLink="user">
     POUŽÍVATELIA
   </button>
@@ -14,10 +14,10 @@
   <button routerLink="borrowing">
     VÝPOŽIČKY
   </button>
-  <button routerLink="genre">
+  <button routerLink="genres">
     ŽÁNRE
   </button>
->>>>>>> 8e2e4cc08e56f08787cac681ef063d55ce83510c
+
 </div>
 
 <div class="container">
@@ -37,24 +37,9 @@
     <router-outlet></router-outlet>
   </ng-container>
 
-<<<<<<< HEAD
-<!--    <table *ngIf="books.length">-->
-<!--      <tr>-->
-<!--        <th>Nazov knihy</th>-->
-<!--      </tr>-->
-<!--      <tr *ngFor="let book of books">-->
-<!--        <td>{{book.title}}</td>-->
-<!--      </tr>-->
-<!--    </table>-->
-<!--  </ng-container>-->
-<!--  <ng-container *ngIf="actualMenu === menu.BORROWINGS">-->
-<!--  -->
-<!--  </ng-container>-->
-
   <ng-container *ngIf="actualMenu === menu.GENRES">
     <router-outlet></router-outlet>
   </ng-container>
 
-=======
->>>>>>> 8e2e4cc08e56f08787cac681ef063d55ce83510c
+
 </div>

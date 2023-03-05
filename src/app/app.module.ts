@@ -4,10 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-<<<<<<< HEAD
-import { UserComponent } from './user/user.component';
-import {CategoryComponent} from "./category/category.component";
-=======
+
+
+
+
 import {BookComponent} from "./book/book.component";
 import {BorrowingsComponent} from "./borrowings/borrowings.component";
 import { UserPageComponent } from './user/user-page.component';
@@ -18,16 +18,11 @@ import { BorrowingFormComponent } from './borrowings/borrowing-form/borrowing-fo
 import { BorrowingListComponent } from './borrowings/borrowing-list/borrowing-list.component';
 import { BookFormComponent } from './book/book-form/book-form.component';
 import { BookListComponent } from './book/book-list/book-list.component';
-
->>>>>>> 8e2e4cc08e56f08787cac681ef063d55ce83510c
+import {CategoryComponent} from "./category/category.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
-    UserComponent,
-    CategoryComponent
-=======
     BookComponent,
     BorrowingsComponent,
     UserPageComponent,
@@ -36,8 +31,8 @@ import { BookListComponent } from './book/book-list/book-list.component';
     BorrowingFormComponent,
     BorrowingListComponent,
     BookFormComponent,
+    CategoryComponent,
     BookListComponent
->>>>>>> 8e2e4cc08e56f08787cac681ef063d55ce83510c
   ],
   imports: [
     BrowserModule,
