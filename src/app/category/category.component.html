@@ -1,9 +1,11 @@
+<div class="container">
 <h3>ZANRE</h3>
 
 <form [formGroup]="form">
   <input type="text" placeholder="Nazov zanru" formControlName="title">
 
   <button type="button" (click)="saveCategory()">Ulozit</button>
+  <p class="invalid-text" *ngIf="form.controls.title.invalid">Zadajte názov zanru</p>
 </form>
 
 <table *ngIf="categories.length">
@@ -16,3 +18,4 @@
     <button (click)="deleteCategory(i)">Zmazat</button>
   </tr>
 </table>
+</div>
