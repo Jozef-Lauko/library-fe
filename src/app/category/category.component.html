@@ -1,0 +1,18 @@
+<h3>ZANRE</h3>
+
+<form [formGroup]="form">
+  <input type="text" placeholder="Nazov zanru" formControlName="title">
+
+  <button type="button" (click)="saveCategory()">Ulozit</button>
+</form>
+
+<table *ngIf="categories.length">
+  <tr>
+    <th>Nazov zanru</th>
+  </tr>
+  <tr *ngFor="let category of categories; let i = index">
+    <td>{{category.title}}</td>
+    <button (click)="editCategory(i)">Upravit</button>
+    <button (click)="deleteCategory(i)">Zmazat</button>
+  </tr>
+</table>
