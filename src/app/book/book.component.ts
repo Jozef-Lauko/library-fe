@@ -21,10 +21,9 @@ export class BookComponent {
   }
 
   updateBook(tmp: Book){
-    const index = this.books.findIndex(book => book.id === book.id);
+    const index = this.books.findIndex(book => book.id === tmp.id);
     if (index !== -1){
       this.books[index] = tmp;
-      this.book = undefined;
     }
   }
 
