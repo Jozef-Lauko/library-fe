@@ -1,0 +1,15 @@
+<div class="container">
+  <table *ngIf="categories.length">
+    <tr>
+      <th>Nazov zanru</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let category of categories">
+      <td>{{category.title}}</td>
+      <td><button class="delete-btn" (click)="deleteCategory(category.id)">Zmazat</button></td>
+      <td><button class="edit-btn" (click)="updateCategory(category.id)">Upravit</button></td>
+    </tr>
+  </table>
+</div>
+
