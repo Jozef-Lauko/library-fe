@@ -1,0 +1,22 @@
+<div class="container">
+  <p class="invalid-text" *ngIf="form.controls.borrowerName.invalid">Zadajte meno</p>
+  <p class="invalid-text" *ngIf="form.controls.borrowerSurname.errors?.required">Zadajte priezvisko</p>
+  <p class="invalid-text" *ngIf="form.controls.borrowerSurname.errors?.minlength">Minimalna dlzka priezviska su 3 znaky</p>
+  <p class="invalid-text" *ngIf="form.controls.bookTitle.invalid">Zadajte Nazov knihy</p>
+
+  <form [formGroup]="form" (submit)="saveBorrowing()">
+    <label>
+      <input type="text" placeholder="Meno" formControlName="borrowerName">
+    </label>
+
+    <label>
+      <input type="text" placeholder="Priezvisko" formControlName="borrowerSurname">
+    </label>
+
+    <label>
+      <input type="text" placeholder="Nazov knihy" formControlName="bookTitle">
+    </label>
+
+    <button class="submit-btn" type="submit" [disabled]="form.invalid">Ulozit</button>
+  </form>
+</div>

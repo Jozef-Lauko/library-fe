@@ -1,95 +1,33 @@
 <div class="header">
-  <button class="hlava" routerLink="/user">Pouzivatelia</button>
-  <button class="hlava" (click)="changeMenu(menu.BOOK)">Knihy</button>
-  <button class="hlava" (click)="changeMenu(menu.BORROWINGS)">Vypozicky</button>
-  <button class="hlava" (click)="changeMenu(menu.GENRES)">Zanre</button>
-<!--  <h1>{{ form.controls.projectTitle.value }}</h1>-->
-<!--                     potrebujem zadat aku hodnotu ma dostat -->
+  <button routerLink="user">
+    POUŽÍVATELIA
+  </button>
+  <button routerLink="book">
+    KNIHY
+  </button>
+  <button routerLink="borrowing">
+    VÝPOŽIČKY
+  </button>
+  <button routerLink="genres">
+    ŽÁNRE
+  </button>
 </div>
 
-<ng-container *ngIf="actualMenu === menu.USERS">
-  <router-outlet></router-outlet>
-</ng-container>
+<div class="container">
+  <ng-container *ngIf="actualMenu === menu.USERS">
+    <router-outlet></router-outlet>
+  </ng-container>
 
-<ng-container *ngIf="actualMenu === menu.BOOK">
-  <h3>KNIHY</h3>
-  <div class="forma">
-    <form [formGroup]="form">
-      <label>Nazov knihy:
-        <input type="text" formControlName="title"/>
-      </label>
-      <label>Autor:
-        <input type="text" formControlName="surname"/>
-      </label>
+  <ng-container *ngIf="actualMenu === menu.BOOKS">
+    <router-outlet></router-outlet>
+  </ng-container>
 
-      <button class="tlacitko" type="button" (click)="saveBook()"> Ulozit </button>
-    </form>
-  </div>
-  <div class="tabulka">
-    <table class="tabulka" *ngIf="books.length">
-      <tr>
-        <th>Nazov </th>
-        <th> Autor </th>
-      </tr>
-      <tr *ngFor="let book of books">
-        <td>{{ book.title }}</td>
-        <td>{{ book.surname }}</td>
-      </tr>
-    </table>
-  </div>
-</ng-container>
+  <ng-container *ngIf="actualMenu === menu.BORROWINGS">
+    <router-outlet></router-outlet>
+  </ng-container>
 
+  <ng-container *ngIf="actualMenu === menu.GENRES">
+    <router-outlet></router-outlet>
+  </ng-container>
 
-<ng-container *ngIf="actualMenu === menu.BORROWINGS">
-  <h3>Vypozicky</h3>
-  <div class="forma">
-    <form [formGroup]="form">
-      <label> Meno:
-        <input type="text" formControlName="name">
-      </label>
-      <label> Kniha:
-        <input type="text" formControlName="title">
-      </label>
-      <label> Datum vypozicky:
-        <input type="text" formControlName="dateOfBorrowing">
-      </label>
-      <button class="tlacitko" type="button" (click)="saveBorrowing()"> Ulozit </button>
-    </form>
-  </div>
-  <div class="tabulka">
-    <table class="tabulka" *ngIf="borrowings.length">
-      <tr>
-        <th>Meno </th>
-        <th>Titul </th>
-        <th>Datum Vypozicky </th>
-      </tr>
-      <tr *ngFor="let borrowing of borrowings">
-        <td>{{ borrowing.name }}</td>
-        <td>{{ borrowing.title}}</td>
-        <td>{{ borrowing.dateOfBorrowing}}</td>
-      </tr>
-    </table>
-  </div>
-</ng-container>
-
-<ng-container *ngIf="actualMenu === menu.GENRES">
-  <h3>Zanre</h3>
-  <div class="forma">
-    <form [formGroup]="form">
-      <label>Zaner:
-        <input type="text" formControlName="name">
-      </label>
-      <button class="tlacitko" type="button" (click)="saveGenre()"> Ulozit </button>
-    </form>
-  </div>
-  <div class="tabulka">
-    <table class="tabulka" *ngIf="genres.length">
-      <tr>
-        <th>Typ zanra</th>
-      </tr>
-      <tr *ngFor="let genre of genres">
-        <td>{{ genre.name }}</td>
-      </tr>
-    </table>
-  </div>
-</ng-container>
+</div>

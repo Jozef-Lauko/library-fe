@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "DruhaHodina": {
+    "cv2": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/druha-hodina",
+            "outputPath": "dist/cv2",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "DruhaHodina:build:production"
+              "browserTarget": "cv2:build:production"
             },
             "development": {
-              "browserTarget": "DruhaHodina:build:development"
+              "browserTarget": "cv2:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "DruhaHodina:build"
+            "browserTarget": "cv2:build"
           }
         },
         "test": {
@@ -96,6 +96,6 @@
     }
   },
   "cli": {
-    "analytics": "0c74c4a6-449b-4c9c-82a5-a830958fe0c2"
+    "analytics": "3cb0e003-263c-41c4-b2dc-715589dd8005"
   }
 }

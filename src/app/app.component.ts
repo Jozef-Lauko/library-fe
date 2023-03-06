@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
-import {FormControl, FormGroup, Validator, Validators} from "@angular/forms";
-import {User} from "./model/user.model";
+import {Component} from '@angular/core';
+import {Router} from "@angular/router";
 
-export enum Menu{
-  BOOK = 'BOOKS',
+
+
+export enum Menu {
+  BOOKS = 'BOOKS',
   USERS = 'USERS',
   BORROWINGS = 'BORROWINGS',
-  GENRES = 'GENRES',
+  GENRES = 'GENRES'
 }
 
 @Component({
@@ -16,55 +17,18 @@ export enum Menu{
 })
 
 export class AppComponent {
-  form: FormGroup;
-
-  books: Array<{
-    title: string;
-    surname: string;
-  }> = [];
-
-  borrowings: Array<{
-    name: string;
-    title: string
-    dateOfBorrowing: number
-  }> = [];
-
-  genres: Array<{
-    name: string;
-  }> = [];
-
-
   menu = Menu;
   actualMenu = Menu.USERS;
 
-  constructor() {
-    this.form = new FormGroup({
-      name: new FormControl(null, Validators.required),
-      surname: new FormControl(null, [Validators.required, Validators.minLength(3)]),  //mozem si upresnit dlzku priezviska
-      title: new FormControl(),
-      dateOfBorrowing: new FormControl(),
-    })
+  constructor(private router: Router) {
+
   }
 
-  saveBook(): void{
-    this.books.push(this.form.value);
-    this.form.reset();
-  }
-
-  saveBorrowing(): void{
-    this.borrowings.push(this.form.value);
-    this.form.reset();
-  }
-
-  saveGenre(): void{
-    this.genres.push(this.form.value);
-    this.form.reset();
-  }
-
-
-
-  changeMenu(menuItem: Menu): void{
-    this.actualMenu = menuItem;
+  changeMenu(menuItem: Menu): void {
+    switch (menuItem) {
+      case Menu.USERS: this.router.navigate(['user']); break;
+      case Menu.BOOKS: this.router.navigate(['book']); break;
+      case Menu.BORROWINGS: this.router.navigate(['borrowing']); break;
+    }
   }
 }
-

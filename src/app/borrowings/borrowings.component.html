@@ -1,0 +1,16 @@
+<div class="container">
+  <h3>Výpožičky</h3>
+
+  <app-borrowing-form
+    [BorrowingData]="borrowing"
+    (formCreate)="createBorrowing($event)"
+    (formUpdate)="updateBorrowing($event)" >
+  </app-borrowing-form>
+
+  <app-borrowing-list
+    [borrowings]="borrowings"
+    (borrowingToUpdate)="selectBorrowingToUpdate($event)"
+    (borrowingToDelete)="deleteBorrowing($event)">
+  </app-borrowing-list>
+
+</div>

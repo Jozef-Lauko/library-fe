@@ -1,0 +1,15 @@
+<div class="container">
+  <h3>KNIHY</h3>
+
+  <app-book-form
+    [BookData]="book"
+    (formCreate)="createBook($event)"
+    (formUpdate)="updateBook($event)" >
+  </app-book-form>
+
+  <app-book-list
+    [books]="books"
+    (bookToUpdate)="selectBookToUpdate($event)"
+    (bookToDelete)="deleteBook($event)">
+  </app-book-list>
+</div>

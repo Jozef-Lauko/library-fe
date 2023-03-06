@@ -1,0 +1,15 @@
+<h3>POUŽÍVATELIA</h3>
+
+<app-user-form
+  helpData="Ahoj"
+  helpDataSetter="Ahoj setter"
+  [personData]="person"
+  (formCreate)="createPerson($event)"
+  (formUpdate)="updatePerson($event)">
+</app-user-form>
+
+<app-user-list
+  [persons]="persons"
+  (personToUpdate)="selectPersonToUpdate($event)"
+  (personToDelete)="deletePerson($event)" >
+</app-user-list>

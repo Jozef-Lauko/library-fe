@@ -1,0 +1,52 @@
+.container {
+  text-align: center;
+}
+.container table {
+  width: 500px;
+  border-collapse: collapse;
+  margin: 2rem auto auto;
+}
+
+.container th {
+  text-align: left;
+  padding: 8px;
+  background-color: #008CBA;
+  color: white;
+}
+
+.container tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.container td {
+  padding: 8px;
+}
+
+.edit-btn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 5px 9px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 5px 9px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}

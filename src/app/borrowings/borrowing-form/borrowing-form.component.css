@@ -1,0 +1,47 @@
+.container {
+  text-align: center;
+}
+.container input {
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding: 5px 10px;
+}
+
+.container input:focus {
+  border-color: #008CBA;
+  box-shadow: 0 0 5px #008CBA;
+}
+
+.submit-btn {
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin: 10px
+}
+
+.submit-btn:hover {
+  background-color: #006B8F;
+}
+
+.invalid-text {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 14px;
+  margin: 10px auto auto;
+  width: 50%;
+}
