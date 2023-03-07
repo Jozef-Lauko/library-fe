@@ -14,8 +14,9 @@ export class UserFormComponent implements OnInit, OnChanges, OnDestroy{
   constructor() {
     this.form = new FormGroup({
       id: new FormControl(null),
-      name: new FormControl(null, Validators.required),
-      surname: new FormControl(null, [Validators.required, Validators.minLength(3)])
+      firstName: new FormControl(null, Validators.required),
+      lastName: new FormControl(null, [Validators.required, Validators.minLength(3)]),
+      emailContact: new FormControl(null)
     })
 
     console.log('CONSTRUCTOR');
@@ -42,8 +43,8 @@ export class UserFormComponent implements OnInit, OnChanges, OnDestroy{
   private prepareUser(id?: number): User {
     return {
       id: id !== undefined ? id : Date.now(),
-      name: this.form.controls.name.value,
-      surname: this.form.controls.surname.value,
+      firstName: this.form.controls.firstName.value,
+      lastName: this.form.controls.lastName.value,
     };
   }
 

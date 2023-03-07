@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {User} from "../model/user.model";
+import {HttpClient} from "@angular/common/http";
+import {UserService} from "../service/user.service";
 
 @Component({
   selector: 'app-user',
@@ -11,28 +13,41 @@ export class UserPageComponent {
   persons: Array<User> = [];
   person?: User;
 
+  constructor(private service: UserService) {
+    this.getPersons();
+  }
+
   createPerson(person: User): void {
-    this.persons.push(person);
-    console.log('PERSONS:', this.persons);
+    this.service.createUser(person).subscribe(() =>{
+      console.log("Create person OK");
+      this.getPersons();
+    })
   }
 
   updatePerson(person: User): void {
-    const index = this.persons.findIndex(
-      person => person.id === person.id);
-    if (index !== -1) {
-      this.persons[index] = person;
-      this.person = undefined;
-    }
+    this.service.updateUser(person).subscribe(()=>{
+      console.log("Update person OK");
+      this.getPersons();
+    })
   }
 
   selectPersonToUpdate(personId: number): void {
-    this.person = this.persons.find(person =>
-      person.id === personId);
+    this.service.getUser(personId).subscribe((person: User) => {
+      this.person = person;
+    })
   }
 
   deletePerson(personId: number): void {
-    const index = this.persons.findIndex(person =>
-      person.id === personId);
-    if (index !== -1) { this.persons.splice(index, 1); }
+    this.service.deleteUser(personId).subscribe(()=> {
+      console.log("Delete person OK");
+      this.getPersons();
+    })
+  }
+
+
+  getPersons():void {
+    this.service.getUsers().subscribe((persons: User[]) => {
+      this.persons = persons;
+    })
   }
 }
