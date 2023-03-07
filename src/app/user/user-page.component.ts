@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {User} from "../model/user.model";
 import {HttpClient} from "@angular/common/http";
-import {UserService} from "../service/user.service";
+import {UserService} from "../service/user/user.service";
 
 @Component({
   selector: 'app-user',
