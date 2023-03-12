@@ -4,6 +4,7 @@
       <th>Nazov knihy</th>
       <th>Meno autora</th>
       <th>Priezvisko autora</th>
+      <th>ISBN</th>
       <th>Dostupne kopie</th>
       <th></th>
       <th></th>
@@ -12,7 +13,8 @@
       <td>{{book.title}}</td>
       <td>{{book.authorFirstName}}</td>
       <td>{{book.authorLastName}}</td>
-      <td>{{book.available}}</td>
+      <td>{{book.isbn}}</td>
+      <td>{{book.count}}</td>
       <td><button class="delete-btn" (click)="deleteBook(book.id)">Zmazat</button></td>
       <td><button class="edit-btn" (click)="updateBook(book.id)">Upravit</button></td>
     </tr>

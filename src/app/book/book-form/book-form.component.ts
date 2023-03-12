@@ -19,7 +19,8 @@ export class BookFormComponent {
       title: new FormControl(null, Validators.required),
       authorFirstName: new FormControl(null, Validators.required),
       authorLastName: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-      available: new FormControl(null, Validators.required)
+      isbn: new FormControl(null, Validators.required),
+      count: new FormControl(null, Validators.required)
     })
   }
 
@@ -41,7 +42,8 @@ export class BookFormComponent {
       title: this.form.controls.title.value,
       authorFirstName: this.form.controls.authorFirstName.value,
       authorLastName: this.form.controls.authorLastName.value,
-      available: this.form.controls.available.value
+      isbn: this.form.controls.isbn.value,
+      count: this.form.controls.count.value
     }
   }
 
