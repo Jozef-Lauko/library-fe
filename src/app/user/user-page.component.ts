@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {User} from "../model/user.model";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-user',
@@ -11,9 +12,16 @@ export class UserPageComponent {
   persons: Array<User> = [];
   person?: User;
 
+  constructor(private http: HttpClient) {
+    this.getPersons();
+  }
+
   createPerson(person: User): void {
-    this.persons.push(person);
-    console.log('PERSONS:', this.persons);
+    this.http.post<User[]>('http://labs.fpv.umb.sk:8080/api/customers', person)
+      .subscribe((person: User[]) => {
+        console.log('Create person OK');
+        this.getPersons();
+    })
   }
 
   updatePerson(person: User): void {
@@ -34,5 +42,12 @@ export class UserPageComponent {
     const index = this.persons.findIndex(person =>
       person.id === personId);
     if (index !== -1) { this.persons.splice(index, 1); }
+  }
+
+  getPersons(): void{
+    this.http.get<User[]>('http://labs.fpv.umb.sk:8080/api/customers')
+      .subscribe((persons: User[]) => {
+        this.persons = persons;
+      })
   }
 }
