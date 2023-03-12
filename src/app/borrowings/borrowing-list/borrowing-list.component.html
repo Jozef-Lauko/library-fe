@@ -1,16 +1,14 @@
 <div class="container">
   <table *ngIf="borrowings.length">
     <tr>
-      <th>Meno</th>
-      <th>Priezvisko</th>
-      <th>Nazov knihy</th>
+      <th>ID pouzivatela</th>
+      <th>ID knihy</th>
       <th></th>
       <th></th>
     </tr>
     <tr *ngFor="let borrowing of borrowings">
-      <td>{{borrowing.borrowerName}}</td>
-      <td>{{borrowing.borrowerSurname}}</td>
-      <td>{{borrowing.bookTitle}}</td>
+      <td>{{borrowing.customerID}}</td>
+      <td>{{borrowing.bookID}}</td>
       <td><button class="delete-btn" (click)="deleteBorrowing(borrowing.id)">Zmazat</button></td>
       <td><button class="edit-btn" (click)="updateBorrowing(borrowing.id)">Upravit</button></td>
     </tr>

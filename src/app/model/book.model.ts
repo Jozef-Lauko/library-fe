@@ -3,5 +3,6 @@ export interface Book{
   title: string;
   authorFirstName: string;
   authorLastName: string;
-  available: number;
+  isbn: string;
+  count: number;
 }

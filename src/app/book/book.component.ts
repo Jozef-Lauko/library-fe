@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Menu} from "../app.component";
+
 import {Book} from "../model/book.model";
+import {BookService} from "../service/book/book.service";
 
 @Component({
   selector: 'app-book',
@@ -10,30 +10,43 @@ import {Book} from "../model/book.model";
 })
 
 export class BookComponent {
-  menu = Menu;
-  actualMenu: Menu = Menu.BOOKS;
 
   books: Array<Book> = [];
   book?: Book;
 
-  createBook(book: Book){
-    this.books.push(book);
+  constructor(private service: BookService) {
+    this.getBooks();
   }
 
-  updateBook(tmp: Book){
-    const index = this.books.findIndex(book => book.id === tmp.id);
-    if (index !== -1){
-      this.books[index] = tmp;
-    }
+  createBook(book: Book) {
+    this.service.createBook(book).subscribe(() => {
+      console.log("Create book OK");
+      this.getBooks();
+    })
   }
 
-  selectBookToUpdate(bookId: number): void{
-    this.book = this.books.find(book => book.id === bookId);
+  updateBook(book: Book) {
+    this.service.updateBook(book).subscribe(() => {
+      console.log("Update book OK");
+      this.getBooks();
+    })
   }
 
-  deleteBook(bookId: number): void{
-    const index = this.books.findIndex(book => book.id === bookId);
-    if (index !== -1){ this.books.splice(index, 1); }
+  selectBookToUpdate(bookId: number): void {
+    this.service.getBook(bookId).subscribe((book: Book) => {
+      this.book = book;
+    })
+  }
+
+  deleteBook(bookId: number): void {
+    this.service.deleteBook(bookId).subscribe(() => {
+      console.log("Delete book OK");
+    })
+  }
+
+  private getBooks(){
+    this.service.getBooks().subscribe((books:Book[])=>{
+      this.books = books;
+    })
   }
 }
-
