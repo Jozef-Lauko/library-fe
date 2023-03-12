@@ -8,7 +8,7 @@ import {Borrowing} from "../../model/borrowing.model";
   providedIn: 'root'
 })
 export class BorrowingService {
-  private url = 'http://labs.fpv.umb.sk:8080/api/borrowing';
+  private url = 'http://labs.fpv.umb.sk:8081/api/borrowing';
 
   constructor(private http: HttpClient) { }
 
