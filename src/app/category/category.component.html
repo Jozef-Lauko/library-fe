@@ -1,0 +1,16 @@
+<div class="container">
+  <h3>Kategorie</h3>
+
+  <app-category-form
+    [CategoryData]="category"
+    (formCreate)="createCategory($event)"
+    (formUpdate)="updateCategory($event)" >
+  </app-category-form>
+
+  <app-category-list
+    [categories]="categories"
+    (categoryToUpdate)="selectCategoryToUpdate($event)"
+    (categoryToDelete)="deleteCategory($event)">
+  </app-category-list>
+
+</div>

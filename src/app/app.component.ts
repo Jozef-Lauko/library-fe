@@ -7,7 +7,7 @@ export enum Menu {
   BOOKS = 'BOOKS',
   USERS = 'USERS',
   BORROWINGS = 'BORROWINGS',
-  GENRES = 'GENRES'
+  CATEGORIES = 'CATEGORIES'
 }
 
 @Component({
@@ -29,6 +29,7 @@ export class AppComponent {
       case Menu.USERS: this.router.navigate(['user']); break;
       case Menu.BOOKS: this.router.navigate(['book']); break;
       case Menu.BORROWINGS: this.router.navigate(['borrowing']); break;
+      case Menu.CATEGORIES: this.router.navigate(['category']); break;
     }
   }
 }

@@ -14,6 +14,10 @@ import { BorrowingFormComponent } from './borrowings/borrowing-form/borrowing-fo
 import { BorrowingListComponent } from './borrowings/borrowing-list/borrowing-list.component';
 import { BookFormComponent } from './book/book-form/book-form.component';
 import { BookListComponent } from './book/book-list/book-list.component';
+import {CategoryComponent} from "./category/category.component";
+import {CategoryFormComponent} from "./category/category-form/category-form.component";
+import {CategoryListComponent} from "./category/category-list/category-list.component";
+import {UserService} from "./service/user/user.service";
 
 
 @NgModule({
@@ -27,7 +31,11 @@ import { BookListComponent } from './book/book-list/book-list.component';
     BorrowingFormComponent,
     BorrowingListComponent,
     BookFormComponent,
-    BookListComponent
+    BookListComponent,
+    CategoryComponent,
+    CategoryFormComponent,
+    CategoryListComponent
+
   ],
   imports: [
     BrowserModule,
@@ -36,7 +44,9 @@ import { BookListComponent } from './book/book-list/book-list.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

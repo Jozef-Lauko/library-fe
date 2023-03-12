@@ -8,7 +8,7 @@
   <button routerLink="borrowing">
     VÝPOŽIČKY
   </button>
-  <button routerLink="genre">
+  <button routerLink="category">
     ŽÁNRE
   </button>
 </div>
@@ -26,7 +26,7 @@
     <router-outlet></router-outlet>
   </ng-container>
 
-  <ng-container *ngIf="actualMenu === menu.GENRES">
+  <ng-container *ngIf="actualMenu === menu.CATEGORIES">
     <router-outlet></router-outlet>
   </ng-container>
 
