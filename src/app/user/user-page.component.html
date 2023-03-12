@@ -1,8 +1,8 @@
 <h3>POUŽÍVATELIA</h3>
 
 <app-user-form
-  helpData="Ahoj"
-  helpDataSetter="Ahoj setter"
+  [helpData]="'Ahoj'"
+  [helpDataSetter]="'Ahoj setter'"
   [personData]="person"
   (formCreate)="createPerson($event)"
   (formUpdate)="updatePerson($event)">

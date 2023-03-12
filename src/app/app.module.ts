@@ -17,6 +17,7 @@ import { BookListComponent } from './book/book-list/book-list.component';
 import {CategoryComponent} from "./category/category.component";
 import {CategoryFormComponent} from "./category/category-form/category-form.component";
 import {CategoryListComponent} from "./category/category-list/category-list.component";
+import {UserService} from "./service/user/user.service";
 
 
 @NgModule({
@@ -43,7 +44,9 @@ import {CategoryListComponent} from "./category/category-list/category-list.comp
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
