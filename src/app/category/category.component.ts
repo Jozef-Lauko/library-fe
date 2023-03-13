@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Menu} from "../app.component";
 import {Category} from "../model/category.model";
+
+import {CategoryService} from "../service/category/category.service";
 
 @Component({
   selector: 'app-category',
@@ -10,19 +10,15 @@ import {Category} from "../model/category.model";
 })
 
 export class CategoryComponent {
-
-  menu = Menu;
-  actualMenu: Menu = Menu.CATEGORIES;
-
   categories: Array<Category>= [];
   category?: Category;
 
-  constructor(private service: CategoryService){
+  constructor(private service: CategoryService) {
     this.getCategories();
   }
 
   createCategory(category: Category) {
-    this.service.createCategory(category).subscribe(() =>{
+    this.service.createCategory(category).subscribe(()=>{
       console.log("Create category OK");
       this.getCategories();
     })
@@ -36,20 +32,21 @@ export class CategoryComponent {
   }
 
   selectCategoryToUpdate(categoryId: number): void {
-    this.service.getBorrowing(categoryId).subscribe((category: Category) => {
+    this.service.getCategory(categoryId).subscribe((category: Category) =>{
       this.category = category;
     })
   }
 
   deleteCategory(categoryId: number): void {
-    this.service.deleteCategory(categoryId).subscribe(()=> {
+    this.service.deleteCategory(categoryId).subscribe(() =>{
       console.log("Delete category OK");
       this.getCategories();
     })
   }
 
-  private getCategories(){
-    this.service.getCategories().subscribe((categories: Category[]) => {
+
+  private getCategories() {
+    this.service.getCategories().subscribe((categories: Category[]) =>{
       this.categories = categories;
     })
   }

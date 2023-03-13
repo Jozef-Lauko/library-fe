@@ -11,12 +11,12 @@ import {User} from "../../model/user.model";
 export class UserFormComponent implements OnInit, OnChanges, OnDestroy{
   form: FormGroup;
 
-
   constructor() {
     this.form = new FormGroup({
       id: new FormControl(null),
       firstName: new FormControl(null, Validators.required),
-      lastName: new FormControl(null, [Validators.required, Validators.minLength(3)])
+      lastName: new FormControl(null, [Validators.required, Validators.minLength(3)]),
+      emailContact: new FormControl(null)
     })
 
     console.log('CONSTRUCTOR');
@@ -27,7 +27,6 @@ export class UserFormComponent implements OnInit, OnChanges, OnDestroy{
   formCreate = new EventEmitter<User>();
   @Output()
   formUpdate = new EventEmitter<User>();
-
 
   savePerson(): void {
     if (this.form.valid) {
