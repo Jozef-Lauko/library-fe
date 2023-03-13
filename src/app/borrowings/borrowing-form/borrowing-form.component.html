@@ -3,8 +3,13 @@
   <p class="invalid-text" *ngIf="form.controls.bookID.invalid">Zadajte ID knihy</p>
 
   <form [formGroup]="form" (submit)="saveBorrowing()">
-    <label>
+    <label>Pouzivatel:
+      <select type="text" formControlName="user">
+        <option ngFor="let user of users" [value]="user.id">
+         {{user.firstName+''+user.lastName}}
+        </option>
       <input type="number" placeholder="ID pouzivatela" formControlName="customerID">
+      </select>
     </label>
 
     <label>

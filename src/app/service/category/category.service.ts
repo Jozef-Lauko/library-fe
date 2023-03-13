@@ -9,6 +9,7 @@ import {Category} from "../../model/category.model";
 })
 
 export class CategoryService {
+  //  private url = 'http://labs.fpv.umb.sk:8080/api/category';
   private url = 'http://labs.fpv.umb.sk:8081/api/category';
 
   constructor(private http: HttpClient) { }

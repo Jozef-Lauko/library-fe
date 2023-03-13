@@ -1,0 +1,7 @@
+<app-user-form
+  [helpData]="'Ahoj'"
+  [helpDataSetter]="'Ahoj setter'"
+  [personData]="person"
+  (formUpdate)="updatePerson($event)"
+  (formCancel)="cancel()">
+</app-user-form>
