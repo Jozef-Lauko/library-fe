@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserPageComponent } from './user.component';
+import { UserPageComponent } from './user-page.component';
 
 describe('UserComponent', () => {
   let component: UserPageComponent;

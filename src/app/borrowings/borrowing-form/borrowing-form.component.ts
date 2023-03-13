@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Borrowing} from "../../model/borrowing.model";
+import {User} from "../../model/user.model";
 
 @Component({
   selector: 'app-borrowing-form',
@@ -8,6 +9,8 @@ import {Borrowing} from "../../model/borrowing.model";
   styleUrls: ['./borrowing-form.component.css']
 })
 export class BorrowingFormComponent {
+  @Input() users?: User[];
+
   form: FormGroup;
 
   @Output() formCreate = new EventEmitter<Borrowing>();
@@ -16,8 +19,8 @@ export class BorrowingFormComponent {
   constructor() {
     this.form = new FormGroup({
       id: new FormControl(null),
-      customerID: new FormControl(null, Validators.required),
-      bookID: new FormControl(null, Validators.required),
+      user: new FormControl(null),
+      book: new FormControl(null, Validators.required),
     })
   }
 

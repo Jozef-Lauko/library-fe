@@ -18,6 +18,7 @@ import {CategoryComponent} from "./category/category.component";
 import {CategoryFormComponent} from "./category/category-form/category-form.component";
 import {CategoryListComponent} from "./category/category-list/category-list.component";
 import {UserService} from "./service/user/user.service";
+import { UserDetailPageComponent } from './user/user-detail-page/user-detail-page.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import {UserService} from "./service/user/user.service";
     BookListComponent,
     CategoryComponent,
     CategoryFormComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    UserDetailPageComponent
 
   ],
   imports: [

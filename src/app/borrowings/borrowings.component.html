@@ -2,6 +2,7 @@
   <h3>Výpožičky</h3>
 
   <app-borrowing-form
+    [users]="users"
     [BorrowingData]="borrowing"
     (formCreate)="createBorrowing($event)"
     (formUpdate)="updateBorrowing($event)" >

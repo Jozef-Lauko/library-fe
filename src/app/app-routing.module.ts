@@ -12,6 +12,10 @@ const routes: Routes = [
     component: UserPageComponent
   },
   {
+    path: 'user/:userId',
+    component: UserDetailPageComponent
+  },
+  {
     path: 'borrowing',
     component: BorrowingsComponent
   },
