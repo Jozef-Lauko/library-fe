@@ -1,1 +1,6 @@
-<p>user-detail-page works!</p>
+<app-user-form
+  [personData]="person"
+  (formUpdate)="updatePerson($event)"
+  (formCancel)="cancel()" >
+
+</app-user-form>

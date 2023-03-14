@@ -3,6 +3,7 @@ import {UserService} from "../../service/user/user.service";
 import {ToastService} from "angular-toastify";
 import {ActivatedRoute, Router} from "@angular/router";
 import {User} from "../../model/user.model";
+import {untilDestroyed} from "@ngneat/until-destroy";
 
 @Component({
   selector: 'app-user-detail-page',
@@ -24,8 +25,25 @@ export class UserDetailPageComponent {
     this.getUser();
   }
 
-  private getUser() {
+  getUser() {
+    if(this.personId) {
+      this.service.getUser(this.personId).pipe(untilDestroyed(this)).subscribe((person: User) => {
+        this.person = person;
+      })
+    }
+  }
 
+  updatePerson(person: User): void {
+    this.service.updateUser(person).pipe(untilDestroyed(this)).subscribe(()=>{
+      this.toastService.success("Osoba bola uspensne zmenena.");
+      console.log("Update person OK");
+    }, () => {
+      this.toastService.error("Chyba. Osoba nebola zmazana.");
+    })
+  }
+
+  cancel(): void {
+    this.router.navigate(['user']);
   }
 }
 

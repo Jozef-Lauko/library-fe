@@ -7,7 +7,7 @@ import {User} from "../../model/user.model";
   providedIn: 'root'
 })
 export class UserService {
-  private url = 'http://labs.fpv.umb.sk:8081/api/customers';
+  private url = 'http://labs.fpv.umb.sk:8081/api/customer';
   // private url = 'http://localhost:8080/api/customers';
 
 

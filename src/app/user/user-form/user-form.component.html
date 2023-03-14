@@ -9,4 +9,5 @@
   <p *ngIf="form.controls.lastName.errors?.minlength" class="invalid-text">Zadajte priezvisko</p>
   <p *ngIf="form.controls.lastName.errors?.required" class="invalid-text">Minimálna dĺžka priezviska sú 3 znaky</p>
   <button type="submit" [disabled]="form.invalid">Uložiť</button>
+  <button type="button" (click)="formCancel.emit()">Zrušiť</button>
 </form>

@@ -23,10 +23,9 @@ export class UserFormComponent implements OnInit, OnChanges, OnDestroy{
     console.log('CONSTRUCTOR HELPDATA:', this.helpData);
   }
 
-  @Output()
-  formCreate = new EventEmitter<User>();
-  @Output()
-  formUpdate = new EventEmitter<User>();
+  @Output() formCreate = new EventEmitter<User>();
+  @Output() formUpdate = new EventEmitter<User>();
+  @Output() formCancel = new EventEmitter<void>();
 
   savePerson(): void {
     if (this.form.valid) {
@@ -36,7 +35,6 @@ export class UserFormComponent implements OnInit, OnChanges, OnDestroy{
       } else {
         this.formCreate.emit(this.prepareUser());
       }
-      this.form.reset();
     }
   }
 

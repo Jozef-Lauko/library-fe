@@ -19,7 +19,9 @@ export class UserPageComponent implements OnDestroy {
 
   private getListSubscription?: Subscription;
 
-  constructor(private service: UserService, private toastService: ToastService, private router: Router) {
+  constructor(private service: UserService,
+              private toastService: ToastService,
+              private router: Router) {
     this.getPersons();
   }
 
@@ -30,13 +32,6 @@ export class UserPageComponent implements OnDestroy {
   createPerson(person: User): void {
     this.service.createUser(person).subscribe(() =>{
       console.log("Create person OK");
-      this.getPersons();
-    })
-  }
-
-  updatePerson(person: User): void {
-    this.service.updateUser(person).subscribe(()=>{
-      console.log("Update person OK");
       this.getPersons();
     })
   }
