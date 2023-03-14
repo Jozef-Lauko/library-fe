@@ -1,20 +1,29 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {User} from "../model/user.model";
-import {HttpClient} from "@angular/common/http";
 import {UserService} from "../service/user/user.service";
+import {Subscription} from "rxjs";
+import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
+import {ToastService} from "angular-toastify";
 
+@UntilDestroy()
 @Component({
   selector: 'app-user',
   templateUrl: './user-page.component.html',
   styleUrls: ['./user-page.component.css']
 })
-export class UserPageComponent {
+export class UserPageComponent implements OnDestroy {
 
   persons: Array<User> = [];
   person?: User;
 
-  constructor(private service: UserService) {
+  private getListSubscription?: Subscription;
+
+  constructor(private service: UserService, private toastService: ToastService) {
     this.getPersons();
+  }
+
+  ngOnDestroy(): void {
+        this.getListUnsubscribe();
   }
 
   createPerson(person: User): void {
@@ -38,16 +47,26 @@ export class UserPageComponent {
   }
 
   deletePerson(personId: number): void {
-    this.service.deleteUser(personId).subscribe(()=> {
-      console.log("Delete person OK");
-      this.getPersons();
+    if(window.confirm("Naozaj chcete vymazat osobu?")){
+      this.service.deleteUser(personId).pipe(untilDestroyed(this)).subscribe(()=> {
+        console.log("Delete person OK");
+        this.getPersons();
+      }, () => {
+        this.toastService.error("Chyba. Osoba nebola vymazana.")
+      })
+    }
+  }
+
+  getPersons():void {
+    this.service.getUsers().pipe(untilDestroyed(this)).subscribe((persons: User[]) => {
+      this.persons = persons;
     })
   }
 
-
-  getPersons():void {
-    this.service.getUsers().subscribe((persons: User[]) => {
-      this.persons = persons;
-    })
+  private getListUnsubscribe(): void {
+    if(this.getListSubscription) {
+      this.getListSubscription.unsubscribe();
+      this.getListSubscription = undefined;
+    }
   }
 }

@@ -19,6 +19,8 @@ import {CategoryFormComponent} from "./category/category-form/category-form.comp
 import {CategoryListComponent} from "./category/category-list/category-list.component";
 import {UserService} from "./service/user/user.service";
 import { UserDetailPageComponent } from './user/user-detail-page/user-detail-page.component';
+import {BorrowingService} from "./service/borrowing/borrowing.service";
+import {AngularToastifyModule, ToastService} from "angular-toastify";
 
 
 @NgModule({
@@ -44,10 +46,13 @@ import { UserDetailPageComponent } from './user/user-detail-page/user-detail-pag
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularToastifyModule
   ],
   providers: [
-    UserService
+    UserService,
+    BorrowingService,
+    ToastService
   ],
   bootstrap: [AppComponent]
 })

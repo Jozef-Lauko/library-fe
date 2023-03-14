@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Borrowing} from "../../model/borrowing.model";
 import {User} from "../../model/user.model";
+import {Book} from "../../model/book.model";
 
 @Component({
   selector: 'app-borrowing-form',
@@ -10,6 +11,7 @@ import {User} from "../../model/user.model";
 })
 export class BorrowingFormComponent {
   @Input() users?: User[];
+  @Input() books?: Book[];
 
   form: FormGroup;
 

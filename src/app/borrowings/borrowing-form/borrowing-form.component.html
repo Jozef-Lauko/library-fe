@@ -4,15 +4,19 @@
 
   <form [formGroup]="form" (submit)="saveBorrowing()">
     <label>Používateľ:
-      <select type="text" formControlName="user">
+      <select formControlName="user">
         <option *ngFor="let user of users" [value]="user.id">
           {{ user.firstName + ' ' + user.lastName }}
         </option>
       </select>
     </label>
 
-    <label>
-      <input type="number" placeholder="ID knihy" formControlName="bookID">
+    <label>Kniha:
+      <select formControlName="book">
+        <option *ngFor="let book of books" [value]="book.id">
+          {{ book.title }}
+        </option>
+      </select>
     </label>
 
     <button class="submit-btn" type="submit" [disabled]="form.invalid">Ulozit</button>
