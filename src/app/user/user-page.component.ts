@@ -4,6 +4,7 @@ import {UserService} from "../service/user/user.service";
 import {Subscription} from "rxjs";
 import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 import {ToastService} from "angular-toastify";
+import {Router} from "@angular/router";
 
 @UntilDestroy()
 @Component({
@@ -18,7 +19,7 @@ export class UserPageComponent implements OnDestroy {
 
   private getListSubscription?: Subscription;
 
-  constructor(private service: UserService, private toastService: ToastService) {
+  constructor(private service: UserService, private toastService: ToastService, private router: Router) {
     this.getPersons();
   }
 
@@ -41,9 +42,7 @@ export class UserPageComponent implements OnDestroy {
   }
 
   selectPersonToUpdate(personId: number): void {
-    this.service.getUser(personId).subscribe((person: User) => {
-      this.person = person;
-    })
+    this.router.navigate(['user', personId]);
   }
 
   deletePerson(personId: number): void {

@@ -5,6 +5,7 @@ import {BookComponent} from "./book/book.component";
 import {BorrowingsComponent} from "./borrowings/borrowings.component";
 import {UserPageComponent} from "./user/user-page.component";
 import {CategoryComponent} from "./category/category.component";
+import {UserDetailPageComponent} from "./user/user-detail-page/user-detail-page.component";
 
 const routes: Routes = [
   {
