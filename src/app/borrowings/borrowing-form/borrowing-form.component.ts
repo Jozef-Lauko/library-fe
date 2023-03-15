@@ -17,6 +17,7 @@ export class BorrowingFormComponent {
 
   @Output() formCreate = new EventEmitter<Borrowing>();
   @Output() formUpdate = new EventEmitter<Borrowing>();
+  @Output() formCancel = new EventEmitter<void>();
 
   constructor() {
     this.form = new FormGroup({
@@ -34,7 +35,6 @@ export class BorrowingFormComponent {
       } else {
         this.formCreate.emit(this.prepareBorrowing());
       }
-      this.form.reset();
     }
   }
 
@@ -51,5 +51,10 @@ export class BorrowingFormComponent {
     if (borrowing) {
       this.form.setValue(borrowing);
     }
+  }
+
+  test(): void {
+    console.log('rererere');
+    this.formCancel.emit()
   }
 }

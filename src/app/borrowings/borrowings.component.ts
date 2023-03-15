@@ -9,6 +9,7 @@ import {BookService} from "../service/book/book.service";
 import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 import {Subscription} from "rxjs";
 import {ToastService} from "angular-toastify";
+import {Router} from "@angular/router";
 
 @UntilDestroy()
 @Component({
@@ -26,8 +27,8 @@ export class BorrowingsComponent {
 
   private getListSubscription?: Subscription;
 
-  constructor(private borService: BorrowingService, private usService: UserService, private bookService: BookService, private toastService: ToastService) {
-    this.borService.getBorrowings();
+  constructor(private borService: BorrowingService, private usService: UserService, private bookService: BookService, private router: Router, private toastService: ToastService) {
+    this.getBorrowings();
     this.getUsers();
     this.getBooks();
   }
@@ -39,13 +40,6 @@ export class BorrowingsComponent {
   createBorrowing(borrowing: Borrowing) {
     this.borService.createBorrowing(borrowing).subscribe(() => {
       console.log("Create borrowing OK");
-      this.getBorrowings();
-    })
-  }
-
-  updateBorrowing(borrowing: Borrowing) {
-    this.borService.updateBorrowing(borrowing).subscribe(() => {
-      console.log("Update borrowing OK");
       this.getBorrowings();
     })
   }
@@ -71,6 +65,10 @@ export class BorrowingsComponent {
     this.borService.getBorrowings().pipe(untilDestroyed(this)).subscribe((borrowings: Borrowing[]) => {
       this.borrowings = borrowings;
     })
+  }
+
+  selectBorrwingToUpdate(borrowingId: number): void {
+    this.router.navigate(['borrowing', borrowingId]);
   }
 
   private getUsers(): void {

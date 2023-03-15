@@ -6,6 +6,7 @@ import {BorrowingsComponent} from "./borrowings/borrowings.component";
 import {UserPageComponent} from "./user/user-page.component";
 import {CategoryComponent} from "./category/category.component";
 import {UserDetailPageComponent} from "./user/user-detail-page/user-detail-page.component";
+import {BorrowingsDetailPageComponent} from "./borrowings/borrowings-detail-page/borrowings-detail-page.component";
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'borrowing',
     component: BorrowingsComponent
+  },
+  {
+    path: 'borrowing/:borrowingId',
+    component: BorrowingsDetailPageComponent
   },
   {
     path: 'book',

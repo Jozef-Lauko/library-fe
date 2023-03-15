@@ -21,6 +21,7 @@ import {UserService} from "./service/user/user.service";
 import { UserDetailPageComponent } from './user/user-detail-page/user-detail-page.component';
 import {BorrowingService} from "./service/borrowing/borrowing.service";
 import {AngularToastifyModule, ToastService} from "angular-toastify";
+import { BorrowingsDetailPageComponent } from './borrowings/borrowings-detail-page/borrowings-detail-page.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {AngularToastifyModule, ToastService} from "angular-toastify";
     CategoryComponent,
     CategoryFormComponent,
     CategoryListComponent,
-    UserDetailPageComponent
+    UserDetailPageComponent,
+    BorrowingsDetailPageComponent
 
   ],
   imports: [
