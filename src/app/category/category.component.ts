@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Menu} from "../app.component";
 import {Category} from "../model/category.model";
+
+import {CategoryService} from "../service/category/category.service";
 
 @Component({
   selector: 'app-category',
@@ -10,33 +10,44 @@ import {Category} from "../model/category.model";
 })
 
 export class CategoryComponent {
-
-  menu = Menu;
-  actualMenu: Menu = Menu.CATEGORIES;
-
   categories: Array<Category>= [];
   category?: Category;
 
-  createCategory(category: Category) {
-    this.categories.push(category);
+  constructor(private service: CategoryService) {
+    this.getCategories();
   }
 
-  updateCategory(tmp: Category) {
-    const index = this.categories.findIndex(
-      category => category.id === tmp.id);
-    if (index !== -1) {
-      this.categories[index] = tmp;
-    }
+  createCategory(category: Category) {
+    this.service.createCategory(category).subscribe(()=>{
+      console.log("Create category OK");
+      this.getCategories();
+    })
+  }
+
+  updateCategory(category: Category) {
+    this.service.updateCategory(category).subscribe(()=>{
+      console.log("Update category OK");
+      this.getCategories();
+    })
   }
 
   selectCategoryToUpdate(categoryId: number): void {
-    this.category = this.categories.find(
-      category => category.id === categoryId);
+    this.service.getCategory(categoryId).subscribe((category: Category) =>{
+      this.category = category;
+    })
   }
 
   deleteCategory(categoryId: number): void {
-    const index = this.categories.findIndex(category =>
-      category.id === categoryId);
-    if (index !== -1) { this.categories.splice(index, 1); }
+    this.service.deleteCategory(categoryId).subscribe(() =>{
+      console.log("Delete category OK");
+      this.getCategories();
+    })
+  }
+
+
+  private getCategories() {
+    this.service.getCategories().subscribe((categories: Category[]) =>{
+      this.categories = categories;
+    })
   }
 }

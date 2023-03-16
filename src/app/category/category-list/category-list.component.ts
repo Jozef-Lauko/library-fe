@@ -7,6 +7,7 @@ import {User} from "../../model/user.model";
   templateUrl: './category-list.component.html',
   styleUrls: ['./category-list.component.css']
 })
+
 export class CategoryListComponent {
 
   @Input() categories: Array<Category> = [];
